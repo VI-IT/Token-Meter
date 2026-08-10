@@ -1,0 +1,30 @@
+name: Bug report
+description: Report a reproducible Token Meter problem without private account data.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Do not include passwords, access tokens, cookies, account files, private email addresses or unredacted screenshots.
+  - type: input
+    id: version
+    attributes:
+      label: Token Meter version
+      placeholder: 1.0.4
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version
+      placeholder: Windows 11 24H2, x64
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the expected and actual behavior and the steps needed to reproduce it.
+    validations:
+      required: true
