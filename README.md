@@ -12,7 +12,7 @@
 
 ## English
 
-Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI Codex usage across multiple ChatGPT accounts. It shows remaining weekly quota, reset date and time, local live token activity, active Codex chat count, and token consumption without repeatedly opening account pages.
+Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI Codex usage across multiple ChatGPT accounts. It shows remaining weekly quota, reset date and time, account token totals, and live Codex activity detected on the current Windows PC.
 
 ### Download for Windows
 
@@ -20,7 +20,7 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 
 - Windows 10 or Windows 11, 64-bit
 - Self-contained installer; no separate .NET runtime required
-- Version 1.0.4 introduces silent automatic updates for future releases
+- Future releases can be installed automatically at startup
 
 > The installer is currently not Authenticode-signed. Windows SmartScreen may therefore display an unknown-publisher warning. Only download releases from this repository and verify the published SHA-256 checksum.
 
@@ -28,7 +28,8 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 
 - Monitor multiple separately authenticated ChatGPT/OpenAI accounts
 - Compare remaining Codex weekly quota and exact reset time
-- See local live token totals, consumption deltas and active Codex chat count
+- See token totals and consumption changes reported for each account
+- See how many Codex chats are actively processing on this Windows PC
 - Automatically rank accounts with the most remaining capacity first
 - Keep depleted accounts collapsed until you need them
 - Receive a one-time Windows notification on the exact 11% → 10% transition
@@ -41,7 +42,9 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 
 ### How it works
 
-Each account is authenticated separately through the OpenAI/Codex sign-in flow. Token Meter reads best-effort quota information and local Codex session activity, then presents it in one compact window. The underlying OpenAI endpoints and local session formats are not public stable APIs and can change.
+Each account is authenticated separately through the OpenAI/Codex sign-in flow. Quota and account token totals are requested for the linked account. The green LIVE indicator and active-chat count are derived from Codex session files on the Windows PC where Token Meter is running.
+
+Activity on another PC is **not included in the LIVE chat count**. Usage from another device can later change the account's quota or token total when OpenAI reports an updated value, but Token Meter cannot identify how many chats are currently active on that other device. The underlying OpenAI endpoints and local session formats are not public stable APIs and can change.
 
 The central ChatGPT button opens the existing official ChatGPT desktop app. OpenAI does not currently provide Token Meter with an official Windows account-handoff interface, so ChatGPT opens with the account that was last active in ChatGPT itself.
 
@@ -62,7 +65,7 @@ Read the complete [privacy information](PRIVACY.md) and [security policy](SECURI
 3. Start Token Meter and select **+** to add an account.
 4. Complete the official OpenAI sign-in in your browser.
 
-Version 1.0.3 and older must be upgraded to 1.0.4 once manually. Starting with 1.0.4, later releases are downloaded and installed automatically when Token Meter starts.
+When a newer GitHub release is available, Token Meter downloads and installs it automatically when the app starts.
 
 ### Support development
 
@@ -76,7 +79,7 @@ Support is voluntary and does not unlock features.
 
 ## Deutsch
 
-Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung der OpenAI-Codex-Nutzung mehrerer ChatGPT-Konten. Es zeigt das verbleibende Wochenkontingent, Datum und Uhrzeit des Resets, lokale Live-Tokenaktivität, die Anzahl aktiver Codex-Chats und den Tokenverbrauch an.
+Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung der OpenAI-Codex-Nutzung mehrerer ChatGPT-Konten. Es zeigt das verbleibende Wochenkontingent, Datum und Uhrzeit des Resets, kontobezogene Tokenstände sowie die auf diesem Windows-PC erkannte Codex-Liveaktivität an.
 
 ### Download für Windows
 
@@ -84,7 +87,7 @@ Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung d
 
 - Windows 10 oder Windows 11, 64 Bit
 - Vollständiger Installer; keine separate .NET-Laufzeit erforderlich
-- Version 1.0.4 führt stille automatische Updates für zukünftige Versionen ein
+- Zukünftige Versionen können beim Start automatisch installiert werden
 
 > Der Installer ist derzeit nicht mit einem Authenticode-Zertifikat signiert. Windows SmartScreen kann deshalb einen Hinweis auf einen unbekannten Herausgeber anzeigen. Lade die Datei ausschließlich aus diesem Repository herunter und vergleiche bei Bedarf die veröffentlichte SHA-256-Prüfsumme.
 
@@ -92,7 +95,8 @@ Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung d
 
 - Mehrere getrennt angemeldete ChatGPT-/OpenAI-Konten überwachen
 - Verbleibendes Codex-Wochenkontingent und genaue Reset-Zeit vergleichen
-- Lokalen Live-Tokenstand, Verbrauchsänderungen und aktive Codex-Chats anzeigen
+- Kontobezogene Tokenstände und Verbrauchsänderungen anzeigen
+- Anzeigen, wie viele Codex-Chats auf diesem Windows-PC gerade verarbeitet werden
 - Konten mit dem größten verbleibenden Kontingent automatisch nach oben sortieren
 - Verbrauchte Konten platzsparend einklappen
 - Einmalige Windows-Warnung ausschließlich beim exakten Übergang von 11 % auf 10 %
@@ -103,7 +107,9 @@ Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung d
 
 ### Funktionsweise
 
-Jedes Konto wird getrennt über den OpenAI-/Codex-Anmeldeablauf authentifiziert. Token Meter liest die bestmöglich verfügbaren Kontingentinformationen und lokale Codex-Sitzungsaktivität und stellt sie gemeinsam dar. Die zugrunde liegenden OpenAI-Endpunkte und lokalen Sitzungsformate sind keine stabilen öffentlichen APIs und können sich ändern.
+Jedes Konto wird getrennt über den OpenAI-/Codex-Anmeldeablauf authentifiziert. Kontingent und kontobezogene Tokenstände werden für das verknüpfte Konto abgefragt. Die grüne LIVE-Anzeige und die Zahl aktiver Chats werden dagegen aus Codex-Sitzungsdateien auf genau dem Windows-PC ermittelt, auf dem Token Meter läuft.
+
+Aktivität auf einem zweiten PC wird **nicht in der LIVE-Chat-Anzahl mitgezählt**. Deren Verbrauch kann sich später im Kontingent oder Tokenstand bemerkbar machen, sobald OpenAI einen aktualisierten Wert liefert. Token Meter kann jedoch nicht erkennen, wie viele Chats auf dem anderen Gerät gerade aktiv sind. Die zugrunde liegenden OpenAI-Endpunkte und lokalen Sitzungsformate sind keine stabilen öffentlichen APIs und können sich ändern.
 
 Der zentrale ChatGPT-Button öffnet die bereits installierte offizielle ChatGPT-Desktop-App. OpenAI stellt Token Meter derzeit keine offizielle Windows-Schnittstelle zur Kontoübergabe bereit. Deshalb öffnet ChatGPT mit dem zuletzt innerhalb von ChatGPT aktiven Konto.
 
@@ -124,7 +130,7 @@ Lies die vollständigen [Datenschutzinformationen](PRIVACY.md) und die [Sicherhe
 3. Token Meter starten und über **+** ein Konto hinzufügen.
 4. Die offizielle OpenAI-Anmeldung im Browser abschließen.
 
-Version 1.0.3 und älter muss einmal manuell auf 1.0.4 aktualisiert werden. Ab Version 1.0.4 werden spätere Releases beim Start automatisch heruntergeladen und installiert.
+Wenn ein neueres GitHub-Release verfügbar ist, lädt Token Meter es beim Programmstart automatisch herunter und installiert es.
 
 ### Entwicklung unterstützen
 
