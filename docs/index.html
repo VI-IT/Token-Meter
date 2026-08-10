@@ -34,7 +34,7 @@
   </script>
   <style>
     :root{color-scheme:dark;--bg:#0d1016;--card:#171c26;--line:#2b3342;--text:#f4f7fb;--muted:#aab4c6;--accent:#62d6ad;--blue:#3fa9f5}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:#79c6ff}.wrap{width:min(1080px,92vw);margin:auto}.nav{display:flex;gap:18px;align-items:center;padding:22px 0}.brand{font-weight:750;margin-right:auto}.hero{padding:60px 0 38px;text-align:center}.hero h1{font-size:clamp(2.2rem,6vw,4.7rem);line-height:1.05;margin:.2em 0}.hero p{max-width:760px;margin:18px auto;color:var(--muted);font-size:1.18rem}.button{display:inline-block;background:var(--accent);color:#07120e;text-decoration:none;font-weight:750;padding:13px 22px;border-radius:12px;margin:8px}.button.alt{background:var(--card);color:var(--text);border:1px solid var(--line)}.shot{display:block;width:min(720px,100%);margin:42px auto;border:1px solid var(--line);border-radius:22px;box-shadow:0 24px 70px #0008}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}.card h3{margin-top:0}.section{padding:48px 0}.section h2{font-size:2rem}.muted{color:var(--muted)}.notice{border-left:4px solid #f3b54a;padding:12px 18px;background:#2a2317;border-radius:8px}.footer{border-top:1px solid var(--line);margin-top:50px;padding:30px 0 50px;color:var(--muted)}code{background:#222937;padding:2px 6px;border-radius:5px}@media(max-width:600px){.nav{flex-wrap:wrap}.hero{padding-top:30px}}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}a{color:#79c6ff}.wrap{width:min(1080px,92vw);margin:auto}.nav{display:flex;gap:18px;align-items:center;padding:22px 0}.brand{font-weight:750;margin-right:auto}.hero{padding:60px 0 38px;text-align:center}.hero h1{font-size:clamp(2.2rem,6vw,4.7rem);line-height:1.05;margin:.2em 0}.hero p{max-width:760px;margin:18px auto;color:var(--muted);font-size:1.18rem}.button{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#07120e;text-decoration:none;font-weight:750;padding:13px 22px;border-radius:12px;margin:8px}.button.alt{background:var(--card);color:var(--text);border:1px solid var(--line)}.brand-icon{width:24px;height:24px;object-fit:contain}.shot{display:block;width:min(520px,100%);margin:32px auto;border:1px solid var(--line);border-radius:18px;box-shadow:0 20px 55px #0008}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}.card h3{margin-top:0}.section{padding:48px 0}.section h2{font-size:2rem}.muted{color:var(--muted)}.notice{border-left:4px solid #f3b54a;padding:12px 18px;background:#2a2317;border-radius:8px}.footer{border-top:1px solid var(--line);margin-top:50px;padding:30px 0 50px;color:var(--muted)}code{background:#222937;padding:2px 6px;border-radius:5px}@media(max-width:600px){.nav{flex-wrap:wrap}.hero{padding-top:30px}}
   </style>
 </head>
 <body>
@@ -47,7 +47,7 @@
       <p>Monitor remaining weekly quota and account token totals across multiple ChatGPT accounts, plus live Codex activity detected on the current Windows PC.</p>
       <a class="button" href="https://github.com/VI-IT/Token-Meter/releases/latest/download/Token-Meter-by-VI-IT-Setup.exe">Download for Windows</a>
       <a class="button alt" href="#deutsch">Deutsche Anleitung</a>
-      <img class="shot" src="assets/token-meter-overview.png" alt="Token Meter by VI-IT showing anonymized ChatGPT accounts, Codex weekly quota and reset times">
+      <img class="shot" src="assets/token-meter-live-en.png" alt="English Token Meter interface showing anonymized accounts and live local Codex activity">
     </section>
 
     <section class="wrap section">
@@ -58,7 +58,6 @@
         <article class="card"><h3>Smart account order</h3><p class="muted">Accounts with usable capacity stay at the top; depleted accounts remain collapsed.</p></article>
         <article class="card"><h3>Automatic updates</h3><p class="muted">Future GitHub releases download and install silently when Token Meter starts.</p></article>
       </div>
-      <img class="shot" src="assets/token-meter-live-activity.png" alt="Token Meter live token consumption and anonymized account menu">
     </section>
 
     <section class="wrap section">
@@ -71,6 +70,7 @@
     <section id="deutsch" class="wrap section" lang="de">
       <h2>Deutsche Anleitung</h2>
       <p>Token Meter by VI-IT zeigt für mehrere getrennt angemeldete ChatGPT-/OpenAI-Konten das verbleibende Codex-Wochenkontingent und kontobezogene Tokenstände. Die LIVE-Anzeige zählt ausschließlich aktive Codex-Chats auf diesem Windows-PC; andere Geräte sind darin nicht enthalten.</p>
+      <img class="shot" src="assets/token-meter-live-de.png" alt="Deutsche Token-Meter-Oberfläche mit anonymisierten Konten und lokaler Codex-Liveaktivität">
       <div class="grid">
         <article class="card"><h3>Installation</h3><p class="muted">Installer herunterladen, ausführen, Token Meter starten und über <strong>+</strong> die offizielle OpenAI-Anmeldung öffnen.</p></article>
         <article class="card"><h3>Automatische Sprache</h3><p class="muted">Unter deutschem Windows erscheint die Oberfläche auf Deutsch, bei allen anderen Windows-Sprachen auf Englisch.</p></article>
@@ -83,7 +83,7 @@
     <section class="wrap section">
       <h2>Support development / Entwicklung unterstützen</h2>
       <p>Support is voluntary and does not unlock features. Die Unterstützung ist freiwillig und schaltet keine Funktionen frei.</p>
-      <a class="button alt" href="https://ko-fi.com/viitde">Ko-fi</a><a class="button alt" href="https://paypal.me/viitde">PayPal</a>
+      <a class="button alt" href="https://ko-fi.com/viitde"><img class="brand-icon" src="assets/kofi-icon.png" alt="">Ko-fi</a><a class="button alt" href="https://paypal.me/viitde"><img class="brand-icon" src="assets/paypal-icon.png" alt="">PayPal</a>
     </section>
   </main>
 
