@@ -42,8 +42,6 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 - Run in the Windows notification area and optionally start with Windows
 - Install future GitHub releases automatically and silently at startup
 
-![Token Meter by VI-IT showing anonymized live token activity and the account menu](assets/token-meter-live-activity.png)
-
 ### How it works
 
 Each account is authenticated separately through the OpenAI/Codex sign-in flow. Quota and account token totals are requested for the linked account. The green LIVE indicator and active-chat count are derived from Codex session files on the Windows PC where Token Meter is running.
