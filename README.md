@@ -33,10 +33,12 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 - Monitor multiple separately authenticated ChatGPT/OpenAI accounts
 - Compare remaining Codex weekly quota and exact reset time
 - See token totals and consumption changes reported for each account
+- See the current daily value from the account service, with a clearly marked local minimum while that value is delayed
 - See how many Codex chats are actively processing on this Windows PC
 - Automatically rank accounts with the most remaining capacity first
 - Keep depleted accounts collapsed until you need them
 - Receive a one-time Windows notification on the exact 11% → 10% transition
+- Receive one-time notifications for regular resets within 24 hours and detected quota refills
 - Rename accounts locally and reopen the official sign-in flow when needed
 - Use German automatically on German Windows; English on all other Windows display languages
 - Run in the Windows notification area and optionally start with Windows
@@ -46,9 +48,13 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 
 Each account is authenticated separately through the OpenAI/Codex sign-in flow. Quota and account token totals are requested for the linked account. The green LIVE indicator and active-chat count are derived from Codex session files on the Windows PC where Token Meter is running.
 
+The account service can publish the current daily-usage bucket later than the lifetime total. Until that bucket arrives, Token Meter shows `Today: awaiting API` or, when local Codex activity is available, a clearly marked local minimum. The local minimum covers this PC only; the server value can later include usage from other devices.
+
 Activity on another PC is **not included in the LIVE chat count**. Usage from another device can later change the account's quota or token total when OpenAI reports an updated value, but Token Meter cannot identify how many chats are currently active on that other device. The underlying OpenAI endpoints and local session formats are not public stable APIs and can change.
 
 When the account token total increases because of activity on another device, Token Meter shows the newly detected token difference in red on the next successful account refresh. OpenAI does not label that difference with a source device, so Token Meter cannot separate PC 1 from PC 2.
+
+Regular weekly reset timestamps can be announced up to 24 hours in advance. Extraordinary service-wide refills do not have a reliable public schedule in the account data. Token Meter therefore reports a possible global reset only after several linked accounts are substantially refilled during the same refresh.
 
 The central ChatGPT button opens the existing official ChatGPT desktop app. OpenAI does not currently provide Token Meter with an official Windows account-handoff interface, so ChatGPT opens with the account that was last active in ChatGPT itself.
 
@@ -102,10 +108,12 @@ Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung d
 - Mehrere getrennt angemeldete ChatGPT-/OpenAI-Konten überwachen
 - Verbleibendes Codex-Wochenkontingent und genaue Reset-Zeit vergleichen
 - Kontobezogene Tokenstände und Verbrauchsänderungen anzeigen
+- Aktuellen Tageswert des Kontodienstes sehen; bei Verzögerung mit klar gekennzeichnetem lokalen Mindestwert
 - Anzeigen, wie viele Codex-Chats auf diesem Windows-PC gerade verarbeitet werden
 - Konten mit dem größten verbleibenden Kontingent automatisch nach oben sortieren
 - Verbrauchte Konten platzsparend einklappen
 - Einmalige Windows-Warnung ausschließlich beim exakten Übergang von 11 % auf 10 %
+- Einmalige Mitteilungen bei regulären Resets innerhalb von 24 Stunden und bei erkannten Kontingentauffüllungen
 - Konten lokal umbenennen und bei Bedarf die offizielle Browser-Anmeldung erneut öffnen
 - Deutsche Oberfläche unter deutschem Windows, sonst automatisch Englisch
 - Betrieb im Windows-Infobereich und optionaler Windows-Autostart
@@ -115,9 +123,13 @@ Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung d
 
 Jedes Konto wird getrennt über den OpenAI-/Codex-Anmeldeablauf authentifiziert. Kontingent und kontobezogene Tokenstände werden für das verknüpfte Konto abgefragt. Die grüne LIVE-Anzeige und die Zahl aktiver Chats werden dagegen aus Codex-Sitzungsdateien auf genau dem Windows-PC ermittelt, auf dem Token Meter läuft.
 
+Der Kontodienst kann den aktuellen Tages-Bucket später bereitstellen als den gesamten Tokenstand. Bis dahin zeigt Token Meter `Heute: API ausstehend` oder – falls lokale Codex-Aktivität vorhanden ist – einen klar gekennzeichneten lokalen Mindestwert. Dieser Mindestwert umfasst nur diesen PC; der spätere Serverwert kann auch Nutzung anderer Geräte enthalten.
+
 Aktivität auf einem zweiten PC wird **nicht in der LIVE-Chat-Anzahl mitgezählt**. Deren Verbrauch kann sich später im Kontingent oder Tokenstand bemerkbar machen, sobald OpenAI einen aktualisierten Wert liefert. Token Meter kann jedoch nicht erkennen, wie viele Chats auf dem anderen Gerät gerade aktiv sind. Die zugrunde liegenden OpenAI-Endpunkte und lokalen Sitzungsformate sind keine stabilen öffentlichen APIs und können sich ändern.
 
 Steigt der kontobezogene Tokenstand durch Aktivität auf einem anderen Gerät, zeigt Token Meter die neu erkannte Token-Differenz nach der nächsten erfolgreichen Kontoaktualisierung rot an. OpenAI kennzeichnet diese Differenz nicht mit einem Ursprungsgerät; deshalb kann Token Meter PC 1 und PC 2 dabei nicht auseinanderhalten.
+
+Reguläre Wochenreset-Termine können bis zu 24 Stunden vorher angekündigt werden. Außergewöhnliche dienstweite Auffüllungen besitzen in den Kontodaten keinen verlässlichen öffentlichen Zeitplan. Token Meter meldet einen möglichen globalen Reset deshalb erst, wenn mehrere verknüpfte Konten bei derselben Aktualisierung deutlich aufgefüllt wurden.
 
 Der zentrale ChatGPT-Button öffnet die bereits installierte offizielle ChatGPT-Desktop-App. OpenAI stellt Token Meter derzeit keine offizielle Windows-Schnittstelle zur Kontoübergabe bereit. Deshalb öffnet ChatGPT mit dem zuletzt innerhalb von ChatGPT aktiven Konto.
 
