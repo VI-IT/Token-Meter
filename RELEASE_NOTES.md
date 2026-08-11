@@ -1,17 +1,19 @@
-# Token Meter by VI-IT 1.0.2
+# Token Meter by VI-IT 1.0.3
 
 ## English
 
-Window behavior fix for the Windows release.
+Dynamic window and daily-token display fix for Windows.
 
-- Prevents accidental Windows maximization when the widget is dragged to a screen edge
-- Automatically restores the normal window state if Windows nevertheless requests maximization
-- Keeps moving and manual resizing available at all times
+- Restores automatic window-height adjustment even when an older build saved manual sizing
+- Expands and contracts with the number of visible account cards, capped at the screen work area
+- Keeps the current calendar-day usage visible as `Today: 0` before Codex creates the first daily bucket
+- Accepts current camelCase and alternate snake_case Codex usage fields
 
 ## Deutsch
 
-Korrektur des Fensterverhaltens unter Windows.
+Korrektur der dynamischen Fensterhöhe und Tagesanzeige unter Windows.
 
-- Verhindert unbeabsichtigtes Windows-Maximieren beim Ziehen des Widgets an einen Bildschirmrand
-- Stellt automatisch den normalen Fensterzustand wieder her, falls Windows dennoch maximieren möchte
-- Verschieben und manuelles Ändern der Größe bleiben jederzeit verfügbar
+- Stellt die automatische Fensterhöhe wieder her, auch wenn eine ältere Version manuelle Größe gespeichert hat
+- Wächst und schrumpft mit der Zahl sichtbarer Kontenkarten, begrenzt auf die Bildschirmhöhe
+- Zeigt den aktuellen Kalendertag als `Heute: 0`, bevor Codex den ersten Tages-Bucket anlegt
+- Verarbeitet aktuelle camelCase- sowie alternative snake_case-Felder der Codex-Nutzungsdaten
