@@ -8,7 +8,7 @@ Accounts are added through the OpenAI/Codex authentication flow. Local account p
 
 The public installer is built without developer accounts, user accounts, passwords, cookies, browser caches, sessions or access tokens. VI-IT does not receive account credentials or usage snapshots through Token Meter.
 
-Network connections are made to OpenAI/ChatGPT for authentication and usage refresh, and to GitHub Releases for automatic application updates. Those services apply their own privacy policies.
+Network connections are made to OpenAI/ChatGPT for authentication and usage refresh, to GitHub Releases for automatic application updates, and to the public `codex-reset.com` timeline for optional global-reset notifications. Timeline requests contain no Token Meter account data, authentication material or usage snapshots. Those services can receive standard connection data such as the public IP address and apply their own privacy policies.
 
 ## Deutsch
 
@@ -18,4 +18,4 @@ Konten werden über den OpenAI-/Codex-Anmeldeablauf hinzugefügt. Lokale Kontopr
 
 Der öffentliche Installer enthält keine Entwicklerkonten, Benutzerkonten, Passwörter, Cookies, Browser-Caches, Sitzungen oder Zugriffstoken. VI-IT erhält über Token Meter keine Zugangsdaten oder Nutzungsstände.
 
-Netzwerkverbindungen erfolgen zu OpenAI/ChatGPT für Anmeldung und Kontingentaktualisierung sowie zu GitHub Releases für automatische Programmupdates. Für diese Dienste gelten deren eigene Datenschutzbestimmungen.
+Netzwerkverbindungen erfolgen zu OpenAI/ChatGPT für Anmeldung und Kontingentaktualisierung, zu GitHub Releases für automatische Programmupdates sowie zur öffentlichen Timeline `codex-reset.com` für optionale Mitteilungen über globale Resets. Die Timeline-Anfrage enthält keine Token-Meter-Kontodaten, Authentifizierungsdaten oder Nutzungsstände. Diese Dienste können übliche Verbindungsdaten wie die öffentliche IP-Adresse erhalten; für sie gelten die jeweiligen Datenschutzbestimmungen.

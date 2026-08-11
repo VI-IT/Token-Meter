@@ -39,6 +39,7 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 - Keep depleted accounts collapsed until you need them
 - Receive a one-time Windows notification on the exact 11% → 10% transition
 - Receive one-time notifications for regular resets within 24 hours and detected quota refills
+- Check the public Codex Reset Timeline directly every two minutes and notify on new global reset posts from `@thsottiaux`
 - Rename accounts locally and reopen the official sign-in flow when needed
 - Use German automatically on German Windows; English on all other Windows display languages
 - Run in the Windows notification area and optionally start with Windows
@@ -54,7 +55,7 @@ Activity on another PC is **not included in the LIVE chat count**. Usage from an
 
 When the account token total increases because of activity on another device, Token Meter shows the newly detected token difference in red on the next successful account refresh. OpenAI does not label that difference with a source device, so Token Meter cannot separate PC 1 from PC 2.
 
-Regular weekly reset timestamps can be announced up to 24 hours in advance. Extraordinary service-wide refills do not have a reliable public schedule in the account data. Token Meter therefore reports a possible global reset only after several linked accounts are substantially refilled during the same refresh.
+Regular weekly reset timestamps can be announced up to 24 hours in advance. For extraordinary service-wide resets, Token Meter also reads the public `codex-reset.com` timeline directly every two minutes and shows a one-time Windows notification when it publishes a new global reset post linked to `@thsottiaux`. Existing timeline entries are silently remembered on first use, so historical posts do not trigger old alerts. This optional public signal requires no VI-IT server, account or API key; if it is unavailable, normal quota and LIVE monitoring continue unaffected.
 
 The central ChatGPT button opens the existing official ChatGPT desktop app. OpenAI does not currently provide Token Meter with an official Windows account-handoff interface, so ChatGPT opens with the account that was last active in ChatGPT itself.
 
@@ -114,6 +115,7 @@ Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung d
 - Verbrauchte Konten platzsparend einklappen
 - Einmalige Windows-Warnung ausschließlich beim exakten Übergang von 11 % auf 10 %
 - Einmalige Mitteilungen bei regulären Resets innerhalb von 24 Stunden und bei erkannten Kontingentauffüllungen
+- Öffentliche Codex Reset Timeline alle zwei Minuten direkt prüfen und bei neuen globalen Reset-Beiträgen von `@thsottiaux` benachrichtigen
 - Konten lokal umbenennen und bei Bedarf die offizielle Browser-Anmeldung erneut öffnen
 - Deutsche Oberfläche unter deutschem Windows, sonst automatisch Englisch
 - Betrieb im Windows-Infobereich und optionaler Windows-Autostart
@@ -129,7 +131,7 @@ Aktivität auf einem zweiten PC wird **nicht in der LIVE-Chat-Anzahl mitgezählt
 
 Steigt der kontobezogene Tokenstand durch Aktivität auf einem anderen Gerät, zeigt Token Meter die neu erkannte Token-Differenz nach der nächsten erfolgreichen Kontoaktualisierung rot an. OpenAI kennzeichnet diese Differenz nicht mit einem Ursprungsgerät; deshalb kann Token Meter PC 1 und PC 2 dabei nicht auseinanderhalten.
 
-Reguläre Wochenreset-Termine können bis zu 24 Stunden vorher angekündigt werden. Außergewöhnliche dienstweite Auffüllungen besitzen in den Kontodaten keinen verlässlichen öffentlichen Zeitplan. Token Meter meldet einen möglichen globalen Reset deshalb erst, wenn mehrere verknüpfte Konten bei derselben Aktualisierung deutlich aufgefüllt wurden.
+Reguläre Wochenreset-Termine können bis zu 24 Stunden vorher angekündigt werden. Bei außergewöhnlichen dienstweiten Resets liest Token Meter zusätzlich alle zwei Minuten direkt die öffentliche Timeline von `codex-reset.com` und zeigt einmalig eine Windows-Mitteilung, sobald dort ein neuer globaler Reset-Beitrag von `@thsottiaux` erscheint. Beim ersten Abruf werden vorhandene Einträge still vorgemerkt, damit keine alten Meldungen erscheinen. Dieses optionale öffentliche Signal benötigt weder einen VI-IT-Server noch ein Konto oder einen API-Schlüssel; fällt die Timeline aus, laufen Kontingent- und LIVE-Überwachung unverändert weiter.
 
 Der zentrale ChatGPT-Button öffnet die bereits installierte offizielle ChatGPT-Desktop-App. OpenAI stellt Token Meter derzeit keine offizielle Windows-Schnittstelle zur Kontoübergabe bereit. Deshalb öffnet ChatGPT mit dem zuletzt innerhalb von ChatGPT aktiven Konto.
 
