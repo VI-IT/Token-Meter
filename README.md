@@ -1,6 +1,6 @@
 # Token Meter by VI-IT
 
-**Live Codex token usage and quota monitor for multiple ChatGPT accounts on Windows.**
+**Global Codex reset alerts, weekly quota and live token monitoring for multiple ChatGPT accounts on Windows.**
 
 [English](#english) · **[Deutsche Anleitung](#deutsch)** · [Download](https://github.com/VI-IT/Token-Meter/releases/latest) · [Privacy](PRIVACY.md) · [Support](SUPPORT.md)
 
@@ -14,7 +14,7 @@
 
 ## English
 
-Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI Codex usage across multiple ChatGPT accounts. It shows remaining weekly quota, reset date and time, account token totals, and live Codex activity detected on the current Windows PC.
+Token Meter by VI-IT alerts Windows users when a newly reported global Codex usage reset appears in the public Codex Reset Timeline. The compact desktop widget also monitors remaining weekly quota, exact reset times, account token totals and live Codex activity across multiple ChatGPT accounts.
 
 <img src="assets/token-meter-live-en.png" alt="Token Meter English interface with live local Codex activity" width="480">
 
@@ -28,8 +28,13 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 
 > The installer is currently not Authenticode-signed. Windows SmartScreen may therefore display an unknown-publisher warning. Only download releases from this repository and verify the published SHA-256 checksum.
 
+### Main feature: global Codex reset alerts
+
+Token Meter checks the public Codex Reset Timeline directly every two minutes. When a new global reset post linked to `@thsottiaux` appears, it shows a one-time Windows notification that opens the original X source when clicked. No VI-IT server, user registration or paid API is required.
+
 ### Features
 
+- Receive automatic Windows alerts for newly reported global Codex usage resets
 - Monitor multiple separately authenticated ChatGPT/OpenAI accounts
 - Compare remaining Codex weekly quota and exact reset time
 - See token totals and consumption changes reported for each account
@@ -39,7 +44,6 @@ Token Meter by VI-IT is a compact Windows desktop widget for monitoring OpenAI C
 - Keep depleted accounts collapsed until you need them
 - Receive a one-time Windows notification on the exact 11% → 10% transition
 - Receive one-time notifications for regular resets within 24 hours and detected quota refills
-- Check the public Codex Reset Timeline directly every two minutes and notify on new global reset posts from `@thsottiaux`
 - Rename accounts locally and reopen the official sign-in flow when needed
 - Use German automatically on German Windows; English on all other Windows display languages
 - Run in the Windows notification area and optionally start with Windows
@@ -90,7 +94,7 @@ Support is voluntary and does not unlock features.
 
 ## Deutsch
 
-Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung der OpenAI-Codex-Nutzung mehrerer ChatGPT-Konten. Es zeigt das verbleibende Wochenkontingent, Datum und Uhrzeit des Resets, kontobezogene Tokenstände sowie die auf diesem Windows-PC erkannte Codex-Liveaktivität an.
+Token Meter by VI-IT benachrichtigt Windows-Nutzer, sobald in der öffentlichen Codex Reset Timeline ein neuer globaler Codex-Kontingentreset gemeldet wird. Das kompakte Desktop-Widget überwacht zusätzlich Wochenkontingent, genaue Reset-Zeiten, kontobezogene Tokenstände und lokale Codex-Liveaktivität für mehrere ChatGPT-Konten.
 
 <img src="assets/token-meter-live-de.png" alt="Deutsche Token-Meter-Oberfläche mit lokaler Codex-Liveaktivität" width="480">
 
@@ -104,8 +108,13 @@ Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung d
 
 > Der Installer ist derzeit nicht mit einem Authenticode-Zertifikat signiert. Windows SmartScreen kann deshalb einen Hinweis auf einen unbekannten Herausgeber anzeigen. Lade die Datei ausschließlich aus diesem Repository herunter und vergleiche bei Bedarf die veröffentlichte SHA-256-Prüfsumme.
 
+### Hauptfunktion: globale Codex-Reset-Meldungen
+
+Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timeline. Erscheint dort ein neuer globaler Reset-Beitrag von `@thsottiaux`, zeigt das Programm einmalig eine Windows-Mitteilung und öffnet beim Anklicken die ursprüngliche X-Quelle. Dafür sind weder ein VI-IT-Server noch eine Benutzerregistrierung oder kostenpflichtige API erforderlich.
+
 ### Funktionen
 
+- Automatische Windows-Mitteilungen über neu gemeldete globale Codex-Kontingentresets erhalten
 - Mehrere getrennt angemeldete ChatGPT-/OpenAI-Konten überwachen
 - Verbleibendes Codex-Wochenkontingent und genaue Reset-Zeit vergleichen
 - Kontobezogene Tokenstände und Verbrauchsänderungen anzeigen
@@ -115,7 +124,6 @@ Token Meter by VI-IT ist ein kompaktes Windows-Desktop-Widget zur Überwachung d
 - Verbrauchte Konten platzsparend einklappen
 - Einmalige Windows-Warnung ausschließlich beim exakten Übergang von 11 % auf 10 %
 - Einmalige Mitteilungen bei regulären Resets innerhalb von 24 Stunden und bei erkannten Kontingentauffüllungen
-- Öffentliche Codex Reset Timeline alle zwei Minuten direkt prüfen und bei neuen globalen Reset-Beiträgen von `@thsottiaux` benachrichtigen
 - Konten lokal umbenennen und bei Bedarf die offizielle Browser-Anmeldung erneut öffnen
 - Deutsche Oberfläche unter deutschem Windows, sonst automatisch Englisch
 - Betrieb im Windows-Infobereich und optionaler Windows-Autostart

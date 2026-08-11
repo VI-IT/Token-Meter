@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Token Meter by VI-IT — Live Codex Token & Quota Monitor for Windows</title>
-  <meta name="description" content="Monitor Codex weekly quota, token totals and live local activity across multiple ChatGPT accounts, with Windows alerts for newly reported global Codex resets.">
-  <meta name="keywords" content="Codex quota monitor, ChatGPT token monitor, OpenAI usage monitor, Windows desktop widget, multiple ChatGPT accounts, Codex weekly limit, live token usage">
+  <title>Token Meter by VI-IT — Global Codex Reset Alerts & Quota Monitor</title>
+  <meta name="description" content="Get automatic Windows alerts for newly reported global Codex usage resets. Also monitor weekly quota, token totals and live local activity across multiple ChatGPT accounts.">
+  <meta name="keywords" content="global Codex reset alerts, Codex reset notification, Codex quota reset, Codex quota monitor, ChatGPT token monitor, Windows notification, multiple ChatGPT accounts, Codex weekly limit, live token usage">
   <meta name="author" content="VI-IT">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://vi-it.github.io/Token-Meter/">
   <link rel="alternate" hreflang="en" href="https://vi-it.github.io/Token-Meter/#english">
   <link rel="alternate" hreflang="de" href="https://vi-it.github.io/Token-Meter/#deutsch">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Token Meter by VI-IT">
-  <meta property="og:description" content="Codex quota and account token monitor with live activity detection for the current Windows PC.">
+  <meta property="og:title" content="Token Meter — Global Codex Reset Alerts for Windows">
+  <meta property="og:description" content="Automatic Windows alerts for newly reported global Codex resets, plus weekly quota, token totals and live local activity.">
   <meta property="og:url" content="https://vi-it.github.io/Token-Meter/">
   <meta property="og:image" content="https://vi-it.github.io/Token-Meter/assets/token-meter-overview.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -24,8 +24,9 @@
     "name": "Token Meter by VI-IT",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Windows 10, Windows 11",
-    "softwareVersion": "1.0.0",
-    "description": "Codex quota and account token monitor with live activity detection for the current Windows PC.",
+    "softwareVersion": "1.0.5",
+    "description": "Windows alerts for newly reported global Codex usage resets, with weekly quota, token totals, live local activity and multi-account monitoring.",
+    "featureList": "Global Codex reset notifications, weekly quota monitoring, account token totals, local live activity, multiple ChatGPT accounts",
     "downloadUrl": "https://github.com/VI-IT/Token-Meter/releases/latest/download/Token-Meter-by-VI-IT-Setup.exe",
     "url": "https://vi-it.github.io/Token-Meter/",
     "author": {"@type": "Organization", "name": "VI-IT", "url": "https://www.vi-it.de"},
@@ -43,21 +44,21 @@
   <main>
     <section id="english" class="wrap hero">
       <p><strong>Windows desktop widget</strong></p>
-      <h1>Know your Codex quota before it runs out.</h1>
-      <p>Monitor remaining weekly quota and account token totals across multiple ChatGPT accounts, live Codex activity on this PC, and newly reported global Codex resets.</p>
+      <h1>Get alerted when Codex resets globally.</h1>
+      <p>Receive automatic Windows notifications for newly reported global Codex usage resets. Then monitor weekly quota, token totals and live local activity across multiple ChatGPT accounts.</p>
       <a class="button" href="https://github.com/VI-IT/Token-Meter/releases/latest/download/Token-Meter-by-VI-IT-Setup.exe">Download for Windows</a>
       <a class="button alt" href="#deutsch">Deutsche Anleitung</a>
       <img class="shot" src="assets/token-meter-live-en.png" alt="English Token Meter interface showing anonymized accounts and live local Codex activity">
     </section>
 
     <section class="wrap section">
-      <h2>Live usage and multi-account visibility</h2>
+      <h2>Global reset alerts plus live multi-account visibility</h2>
       <div class="grid">
+        <article class="card"><h3>Global reset alerts</h3><p class="muted">Checks the public Codex Reset Timeline directly every two minutes and notifies once when a new global reset post appears.</p></article>
         <article class="card"><h3>Weekly quota</h3><p class="muted">Compare remaining percentages and exact reset times for every linked account.</p></article>
         <article class="card"><h3>Live activity on this PC</h3><p class="muted">See how many Codex chats are actively processing on this Windows PC. Other devices are not included in this live count.</p></article>
         <article class="card"><h3>Smart account order</h3><p class="muted">Accounts with usable capacity stay at the top; depleted accounts remain collapsed.</p></article>
         <article class="card"><h3>Automatic updates</h3><p class="muted">Future GitHub releases download and install silently when Token Meter starts.</p></article>
-        <article class="card"><h3>Global reset alerts</h3><p class="muted">Checks the public Codex Reset Timeline directly and notifies once when a new global reset post appears.</p></article>
       </div>
     </section>
 
@@ -70,14 +71,14 @@
 
     <section id="deutsch" class="wrap section" lang="de">
       <h2>Deutsche Anleitung</h2>
-      <p>Token Meter by VI-IT zeigt für mehrere getrennt angemeldete ChatGPT-/OpenAI-Konten das verbleibende Codex-Wochenkontingent und kontobezogene Tokenstände. Die LIVE-Anzeige zählt ausschließlich aktive Codex-Chats auf diesem Windows-PC; andere Geräte sind darin nicht enthalten.</p>
+      <p>Token Meter by VI-IT meldet neu veröffentlichte globale Codex-Kontingentresets automatisch per Windows-Mitteilung. Zusätzlich zeigt es für mehrere ChatGPT-/OpenAI-Konten Wochenkontingent, Tokenstände und lokale Codex-Liveaktivität.</p>
       <img class="shot" src="assets/token-meter-live-de.png" alt="Deutsche Token-Meter-Oberfläche mit anonymisierten Konten und lokaler Codex-Liveaktivität">
       <div class="grid">
+        <article class="card"><h3>Globale Reset-Meldungen</h3><p class="muted">Prüft alle zwei Minuten direkt die öffentliche Codex Reset Timeline und meldet neue globale Reset-Beiträge einmalig.</p></article>
         <article class="card"><h3>Installation</h3><p class="muted">Installer herunterladen, ausführen, Token Meter starten und über <strong>+</strong> die offizielle OpenAI-Anmeldung öffnen.</p></article>
         <article class="card"><h3>Automatische Sprache</h3><p class="muted">Unter deutschem Windows erscheint die Oberfläche auf Deutsch, bei allen anderen Windows-Sprachen auf Englisch.</p></article>
         <article class="card"><h3>10-%-Warnung</h3><p class="muted">Die Windows-Mitteilung erscheint einmalig nur beim exakten Übergang von 11 % auf 10 %.</p></article>
         <article class="card"><h3>Lokale Daten</h3><p class="muted">Konten und Authentifizierungsdaten bleiben lokal auf deinem Windows-Gerät.</p></article>
-        <article class="card"><h3>Globale Reset-Meldungen</h3><p class="muted">Prüft die öffentliche Codex Reset Timeline direkt und meldet neue globale Reset-Beiträge einmalig.</p></article>
       </div>
       <p><a class="button" href="https://github.com/VI-IT/Token-Meter/releases/latest/download/Token-Meter-by-VI-IT-Setup.exe">Installer herunterladen</a></p>
     </section>
