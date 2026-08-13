@@ -55,6 +55,8 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - Flash the compact monitor briefly when the remaining weekly percentage decreases
 - Install future GitHub releases automatically and silently at startup
 - Wait for Token Meter and its background processes to exit before replacing program files during an update
+- Show download percentage and transferred megabytes while an update is being retrieved
+- Verify cached installers against GitHub's SHA-256 digest and restart through an independent update worker
 
 ### How it works
 
@@ -89,7 +91,7 @@ Read the complete [privacy information](PRIVACY.md) and [security policy](SECURI
 3. Start Token Meter and select **+** to add an account.
 4. Complete the official OpenAI sign-in in your browser.
 
-When a newer GitHub release is available, Token Meter downloads and installs it automatically when the app starts. Since version 1.0.7, the installer waits until the current Token Meter process has fully exited before replacing files. A 15-second shutdown fail-safe prevents a hidden old instance from blocking the update indefinitely. Unexpected installer errors remain visible and are also written to `update-install.log` in the temporary Token Meter update folder.
+When a newer GitHub release is available, Token Meter downloads and installs it automatically when the app starts. Version 1.0.8 shows the download percentage and transferred megabytes. A complete cached installer is verified against GitHub's SHA-256 digest instead of being downloaded again. An independent temporary update worker waits for Token Meter to exit, runs the installer, waits for completion and explicitly restarts the installed application. Diagnostics are written to `update-worker.log` and `update-install.log` in the temporary Token Meter update folder.
 
 ### Support development
 
@@ -144,6 +146,8 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Kompaktmonitor bei sinkendem Wochenkontingent kurz aufleuchten lassen
 - Zukünftige GitHub-Versionen beim Programmstart automatisch und still installieren
 - Vor dem Ersetzen der Programmdateien auf das vollständige Ende von Token Meter und seinen Hintergrundprozessen warten
+- Beim Herunterladen eines Updates Prozent und übertragene Megabyte anzeigen
+- Zwischengespeicherte Installer anhand der GitHub-SHA-256-Prüfsumme prüfen und über einen unabhängigen Update-Wächter neu starten
 
 ### Funktionsweise
 
@@ -178,7 +182,7 @@ Lies die vollständigen [Datenschutzinformationen](PRIVACY.md) und die [Sicherhe
 3. Token Meter starten und über **+** ein Konto hinzufügen.
 4. Die offizielle OpenAI-Anmeldung im Browser abschließen.
 
-Wenn ein neueres GitHub-Release verfügbar ist, lädt Token Meter es beim Programmstart automatisch herunter und installiert es. Seit Version 1.0.7 wartet der Installer vor dem Ersetzen der Dateien, bis der laufende Token-Meter-Prozess vollständig beendet wurde. Eine 15-sekündige Notabschaltung verhindert, dass eine unsichtbar hängende alte Instanz die Aktualisierung dauerhaft blockiert. Unerwartete Installationsfehler bleiben sichtbar und werden zusätzlich als `update-install.log` im temporären Token-Meter-Updateordner protokolliert.
+Wenn ein neueres GitHub-Release verfügbar ist, lädt Token Meter es beim Programmstart automatisch herunter und installiert es. Version 1.0.8 zeigt dabei Prozent und übertragene Megabyte. Ein vollständiger zwischengespeicherter Installer wird anhand der GitHub-SHA-256-Prüfsumme geprüft und nicht erneut heruntergeladen. Ein unabhängiger temporärer Update-Wächter wartet auf das Programmende, führt den Installer aus, wartet auf dessen Abschluss und startet die installierte Anwendung ausdrücklich neu. Diagnosen stehen als `update-worker.log` und `update-install.log` im temporären Token-Meter-Updateordner.
 
 ### Entwicklung unterstützen
 
