@@ -1,37 +1,33 @@
-# Token Meter by VI-IT 1.0.6
+# Token Meter by VI-IT 1.0.7
 
 ## English
 
-Reliable Codex reset tracking and a new compact account monitor for Windows.
+Critical reliability fix for automatic updates.
 
-- Reset notices now remain visible inside the main window until acknowledged
-- New reset-history view for announcements, individual account detections, global confirmations and publicly rejected global events
-- Stores the last weekly reset timestamp per account and recognizes fresh seven-day windows even when the first visible value is already 95–99%
-- New movable compact monitor for a selected account
-- Compact monitor flashes briefly when the remaining weekly percentage decreases
-- Optional native Windows taskbar progress after minimizing the compact monitor
-- Removed the low-resolution taskbar percentage overlay that could create DPI artifacts
-- Restored the single-line header at a wider minimum window size
-- Improved multi-monitor and high-DPI placement
-- German and English interface text included
+- Fixes an update failure where the old Token Meter instance could remain hidden in the background and prevent the new version from being installed
+- The automatic installer now waits for the exact parent process to exit before replacing application files
+- Token Meter now stops all account sidecars in parallel during a normal shutdown
+- A 15-second exit fail-safe prevents a blocked WPF shutdown from keeping the installer waiting indefinitely
+- The installer requests a graceful shutdown first and terminates only the Token Meter process tree if an older version remains unresponsive
+- Unexpected installer errors are no longer silently suppressed
+- Automatic installations write `update-install.log` to the temporary Token Meter update folder for diagnostics
+- Accounts, authentication profiles, quota history and settings are preserved during the update
 
 ## Deutsch
 
-Zuverlässige Codex-Reset-Erkennung und ein neuer kompakter Kontomonitor für Windows.
+Wichtige Zuverlässigkeitskorrektur für automatische Aktualisierungen.
 
-- Reset-Hinweise bleiben im Hauptfenster sichtbar, bis sie bestätigt werden
-- Neuer Reset-Verlauf für Ankündigungen, einzelne Konto-Erkennungen, globale Bestätigungen und öffentlich verworfene globale Ereignisse
-- Speichert den letzten Wochenreset-Termin pro Konto und erkennt neue Sieben-Tage-Fenster auch bei einem ersten sichtbaren Wert von 95–99 %
-- Neuer frei verschiebbarer Kompaktmonitor für ein ausgewähltes Konto
-- Kompaktmonitor leuchtet kurz auf, wenn das verbleibende Wochenkontingent sinkt
-- Optionaler nativer Windows-Taskleistenfortschritt nach dem Minimieren
-- Schlecht skalierbares Prozent-Overlay entfernt, das bei hoher DPI Artefakte verursachen konnte
-- Einzeilige Kopfleiste mit breiterer Mindestgröße wiederhergestellt
-- Platzierung auf mehreren Bildschirmen und bei hoher DPI verbessert
-- Deutsche und englische Oberfläche enthalten
+- Behebt den Fehler, bei dem eine alte Token-Meter-Instanz unsichtbar im Hintergrund bleiben und die Installation der neuen Version verhindern konnte
+- Der automatische Installer wartet nun auf das Ende des exakten Elternprozesses, bevor Programmdateien ersetzt werden
+- Token Meter beendet die Hintergrunddienste aller Konten beim normalen Herunterfahren parallel
+- Eine 15-sekündige Notabschaltung verhindert, dass ein blockierter WPF-Abschluss den Installer unbegrenzt warten lässt
+- Der Installer fordert zuerst ein sauberes Beenden an und beendet nur dann den Token-Meter-Prozessbaum, wenn eine ältere Version nicht reagiert
+- Unerwartete Installationsfehler werden nicht mehr still unterdrückt
+- Automatische Installationen schreiben zur Diagnose `update-install.log` in den temporären Token-Meter-Updateordner
+- Konten, Anmeldeprofile, Kontingentverlauf und Einstellungen bleiben bei der Aktualisierung erhalten
 
 ## Verification / Prüfung
 
 `Token-Meter-by-VI-IT-Setup.exe`
 
-SHA-256: `806DCAD4E1C8AA2C42E765899CBD2F366808BF63A9487C28F33E7078ED7F2E3B`
+SHA-256: `D263F5D40AF1100BB6A4CD7268F941965806E9FDCE07A2A37E9BE52B503987FE`
