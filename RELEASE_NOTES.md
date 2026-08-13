@@ -1,29 +1,37 @@
-# Token Meter by VI-IT 1.0.5
+# Token Meter by VI-IT 1.0.6
 
 ## English
 
-Direct global Codex-reset notifications without a VI-IT server or paid API.
+Reliable Codex reset tracking and a new compact account monitor for Windows.
 
-- Reads the public `codex-reset.com` timeline directly every two minutes
-- Shows a one-time Windows notification for each new global reset post linked to `@thsottiaux`
-- Distinguishes advance announcements from reported resets and opens the original X source when clicked
-- Establishes a silent baseline on first use so historical events never create old notifications
-- Requires no VI-IT server, user registration, X API key or paid API
-- Continues normal quota and LIVE monitoring if the optional public timeline is unavailable
+- Reset notices now remain visible inside the main window until acknowledged
+- New reset-history view for announcements, individual account detections, global confirmations and publicly rejected global events
+- Stores the last weekly reset timestamp per account and recognizes fresh seven-day windows even when the first visible value is already 95–99%
+- New movable compact monitor for a selected account
+- Compact monitor flashes briefly when the remaining weekly percentage decreases
+- Optional native Windows taskbar progress after minimizing the compact monitor
+- Removed the low-resolution taskbar percentage overlay that could create DPI artifacts
+- Restored the single-line header at a wider minimum window size
+- Improved multi-monitor and high-DPI placement
+- German and English interface text included
 
 ## Deutsch
 
-Direkte Mitteilungen über globale Codex-Resets ohne VI-IT-Server oder kostenpflichtige API.
+Zuverlässige Codex-Reset-Erkennung und ein neuer kompakter Kontomonitor für Windows.
 
-- Liest alle zwei Minuten direkt die öffentliche Timeline `codex-reset.com`
-- Zeigt für jeden neuen globalen Reset-Beitrag von `@thsottiaux` einmalig eine Windows-Mitteilung
-- Unterscheidet Ankündigungen von gemeldeten Resets und öffnet beim Anklicken die ursprüngliche X-Quelle
-- Merkt beim ersten Abruf alle vorhandenen Ereignisse still vor, damit niemals alte Mitteilungen erscheinen
-- Benötigt weder VI-IT-Server noch Benutzerregistrierung, X-API-Schlüssel oder kostenpflichtige API
-- Lässt Kontingent- und LIVE-Überwachung bei einem Ausfall der optionalen Timeline unverändert weiterlaufen
+- Reset-Hinweise bleiben im Hauptfenster sichtbar, bis sie bestätigt werden
+- Neuer Reset-Verlauf für Ankündigungen, einzelne Konto-Erkennungen, globale Bestätigungen und öffentlich verworfene globale Ereignisse
+- Speichert den letzten Wochenreset-Termin pro Konto und erkennt neue Sieben-Tage-Fenster auch bei einem ersten sichtbaren Wert von 95–99 %
+- Neuer frei verschiebbarer Kompaktmonitor für ein ausgewähltes Konto
+- Kompaktmonitor leuchtet kurz auf, wenn das verbleibende Wochenkontingent sinkt
+- Optionaler nativer Windows-Taskleistenfortschritt nach dem Minimieren
+- Schlecht skalierbares Prozent-Overlay entfernt, das bei hoher DPI Artefakte verursachen konnte
+- Einzeilige Kopfleiste mit breiterer Mindestgröße wiederhergestellt
+- Platzierung auf mehreren Bildschirmen und bei hoher DPI verbessert
+- Deutsche und englische Oberfläche enthalten
 
 ## Verification / Prüfung
 
 `Token-Meter-by-VI-IT-Setup.exe`
 
-SHA-256: `1BF4D78E10591DE7A55B87E4BB8C8110A673DE1708C8174C1BBE39DFB708E016`
+SHA-256: `806DCAD4E1C8AA2C42E765899CBD2F366808BF63A9487C28F33E7078ED7F2E3B`

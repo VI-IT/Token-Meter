@@ -30,11 +30,14 @@ Token Meter by VI-IT alerts Windows users when a newly reported global Codex usa
 
 ### Main feature: global Codex reset alerts
 
-Token Meter checks the public Codex Reset Timeline directly every two minutes. When a new global reset post linked to `@thsottiaux` appears, it shows a one-time Windows notification that opens the original X source when clicked. No VI-IT server, user registration or paid API is required.
+Token Meter checks the public Codex Reset Timeline directly every two minutes. New events are classified as announced, detected for one account, globally confirmed or not globally confirmed. Important notices remain visible inside the app until you acknowledge them, while the reset-history view preserves the timeline. Windows tray notifications are an additional signal rather than the only place where a reset is shown. No VI-IT server, user registration or paid API is required.
 
 ### Features
 
 - Receive automatic Windows alerts for newly reported global Codex usage resets
+- Keep reset notices visible in the app until they are acknowledged
+- Review a persistent reset history with announced, account-detected, globally confirmed and rejected states
+- Detect a fresh seven-day quota window even when the first observed value is already 95–99%
 - Monitor multiple separately authenticated ChatGPT/OpenAI accounts
 - Compare remaining Codex weekly quota and exact reset time
 - See token totals and consumption changes reported for each account
@@ -47,6 +50,9 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. W
 - Rename accounts locally and reopen the official sign-in flow when needed
 - Use German automatically on German Windows; English on all other Windows display languages
 - Run in the Windows notification area and optionally start with Windows
+- Click an account card to open a movable compact quota monitor
+- Minimize the compact monitor to a clean native Windows taskbar progress indicator
+- Flash the compact monitor briefly when the remaining weekly percentage decreases
 - Install future GitHub releases automatically and silently at startup
 
 ### How it works
@@ -59,7 +65,9 @@ Activity on another PC is **not included in the LIVE chat count**. Usage from an
 
 When the account token total increases because of activity on another device, Token Meter shows the newly detected token difference in red on the next successful account refresh. OpenAI does not label that difference with a source device, so Token Meter cannot separate PC 1 from PC 2.
 
-Regular weekly reset timestamps can be announced up to 24 hours in advance. For extraordinary service-wide resets, Token Meter also reads the public `codex-reset.com` timeline directly every two minutes and shows a one-time Windows notification when it publishes a new global reset post linked to `@thsottiaux`. Existing timeline entries are silently remembered on first use, so historical posts do not trigger old alerts. This optional public signal requires no VI-IT server, account or API key; if it is unavailable, normal quota and LIVE monitoring continue unaffected.
+Regular weekly reset timestamps can be announced up to 24 hours in advance. Token Meter stores the most recently observed weekly reset timestamp for every account and recognizes a new seven-day window even if activity has already reduced the first visible value from 100% to 95–99%. For extraordinary service-wide resets, Token Meter also reads the public `codex-reset.com` timeline directly every two minutes. Its persistent in-app notice distinguishes an announcement from a reset detected on one account, a globally confirmed reset or an event that public observation did not confirm globally. This optional public signal requires no VI-IT server, account or API key; if it is unavailable, normal quota and LIVE monitoring continue unaffected.
+
+Clicking an account card switches from the full manager to a small always-on-top quota monitor for that account. The monitor can be moved freely, flashes briefly when the remaining weekly percentage decreases and can be minimized to the Windows taskbar. While minimized, Windows shows the remaining quota through its native taskbar progress indicator without a low-resolution text overlay. Double-click the monitor or use its restore button to return to the full manager.
 
 The central ChatGPT button opens the existing official ChatGPT desktop app. OpenAI does not currently provide Token Meter with an official Windows account-handoff interface, so ChatGPT opens with the account that was last active in ChatGPT itself.
 
@@ -110,11 +118,14 @@ Token Meter by VI-IT benachrichtigt Windows-Nutzer, sobald in der öffentlichen 
 
 ### Hauptfunktion: globale Codex-Reset-Meldungen
 
-Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timeline. Erscheint dort ein neuer globaler Reset-Beitrag von `@thsottiaux`, zeigt das Programm einmalig eine Windows-Mitteilung und öffnet beim Anklicken die ursprüngliche X-Quelle. Dafür sind weder ein VI-IT-Server noch eine Benutzerregistrierung oder kostenpflichtige API erforderlich.
+Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timeline. Neue Ereignisse werden als angekündigt, bei einem Konto erkannt, global bestätigt oder nicht global bestätigt eingeordnet. Wichtige Hinweise bleiben im Hauptfenster sichtbar, bis du sie bestätigst; der Reset-Verlauf bewahrt die Ereignisse dauerhaft auf. Windows-Mitteilungen sind nur noch ein zusätzlicher Hinweis. Dafür sind weder ein VI-IT-Server noch eine Benutzerregistrierung oder kostenpflichtige API erforderlich.
 
 ### Funktionen
 
 - Automatische Windows-Mitteilungen über neu gemeldete globale Codex-Kontingentresets erhalten
+- Reset-Hinweise im Hauptfenster behalten, bis sie ausdrücklich bestätigt wurden
+- Gespeicherten Reset-Verlauf mit angekündigten, kontoabhängig erkannten, global bestätigten und verworfenen Ereignissen öffnen
+- Neues Sieben-Tage-Fenster auch dann erkennen, wenn der erste sichtbare Wert bereits bei 95–99 % liegt
 - Mehrere getrennt angemeldete ChatGPT-/OpenAI-Konten überwachen
 - Verbleibendes Codex-Wochenkontingent und genaue Reset-Zeit vergleichen
 - Kontobezogene Tokenstände und Verbrauchsänderungen anzeigen
@@ -127,6 +138,9 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Konten lokal umbenennen und bei Bedarf die offizielle Browser-Anmeldung erneut öffnen
 - Deutsche Oberfläche unter deutschem Windows, sonst automatisch Englisch
 - Betrieb im Windows-Infobereich und optionaler Windows-Autostart
+- Kontokarte anklicken und einen frei verschiebbaren kompakten Prozentmonitor öffnen
+- Kompaktmonitor mit sauberem Windows-Fortschrittsbalken in die Taskleiste minimieren
+- Kompaktmonitor bei sinkendem Wochenkontingent kurz aufleuchten lassen
 - Zukünftige GitHub-Versionen beim Programmstart automatisch und still installieren
 
 ### Funktionsweise
@@ -139,7 +153,9 @@ Aktivität auf einem zweiten PC wird **nicht in der LIVE-Chat-Anzahl mitgezählt
 
 Steigt der kontobezogene Tokenstand durch Aktivität auf einem anderen Gerät, zeigt Token Meter die neu erkannte Token-Differenz nach der nächsten erfolgreichen Kontoaktualisierung rot an. OpenAI kennzeichnet diese Differenz nicht mit einem Ursprungsgerät; deshalb kann Token Meter PC 1 und PC 2 dabei nicht auseinanderhalten.
 
-Reguläre Wochenreset-Termine können bis zu 24 Stunden vorher angekündigt werden. Bei außergewöhnlichen dienstweiten Resets liest Token Meter zusätzlich alle zwei Minuten direkt die öffentliche Timeline von `codex-reset.com` und zeigt einmalig eine Windows-Mitteilung, sobald dort ein neuer globaler Reset-Beitrag von `@thsottiaux` erscheint. Beim ersten Abruf werden vorhandene Einträge still vorgemerkt, damit keine alten Meldungen erscheinen. Dieses optionale öffentliche Signal benötigt weder einen VI-IT-Server noch ein Konto oder einen API-Schlüssel; fällt die Timeline aus, laufen Kontingent- und LIVE-Überwachung unverändert weiter.
+Reguläre Wochenreset-Termine können bis zu 24 Stunden vorher angekündigt werden. Token Meter speichert für jedes Konto den zuletzt beobachteten Wochenreset-Termin und erkennt ein neues Sieben-Tage-Fenster auch dann, wenn Aktivität den ersten sichtbaren Wert bereits von 100 % auf 95–99 % reduziert hat. Bei außergewöhnlichen dienstweiten Resets liest Token Meter zusätzlich alle zwei Minuten direkt die öffentliche Timeline von `codex-reset.com`. Der dauerhafte Hinweis im Hauptfenster unterscheidet eine Ankündigung, einen bei einem Konto erkannten Reset, einen global bestätigten Reset und ein öffentlich nicht global bestätigtes Ereignis. Dieses optionale öffentliche Signal benötigt weder einen VI-IT-Server noch ein Konto oder einen API-Schlüssel; fällt die Timeline aus, laufen Kontingent- und LIVE-Überwachung unverändert weiter.
+
+Ein Klick auf eine Kontokarte wechselt vom vollständigen Manager zu einem kleinen, immer sichtbaren Prozentmonitor für dieses Konto. Der Monitor lässt sich frei verschieben, leuchtet bei sinkendem Wochenkontingent kurz auf und kann in die Windows-Taskleiste minimiert werden. Dort verwendet er den nativen Windows-Fortschrittsbalken ohne schlecht skalierbares Text-Overlay. Per Doppelklick oder Rückkehrtaste öffnet sich wieder der vollständige Manager.
 
 Der zentrale ChatGPT-Button öffnet die bereits installierte offizielle ChatGPT-Desktop-App. OpenAI stellt Token Meter derzeit keine offizielle Windows-Schnittstelle zur Kontoübergabe bereit. Deshalb öffnet ChatGPT mit dem zuletzt innerhalb von ChatGPT aktiven Konto.
 
