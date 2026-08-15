@@ -42,7 +42,7 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - Compare remaining Codex weekly quota and exact reset time
 - See token totals and consumption changes reported for each account
 - See the current daily value from the account service, with a clearly marked local minimum while that value is delayed
-- See how many Codex chats are actively processing on this Windows PC
+- See how many Codex chats are actively processing in a dedicated local LIVE row on this Windows PC
 - Automatically rank accounts with the most remaining capacity first
 - Keep depleted accounts collapsed until you need them
 - Receive a one-time Windows notification on the exact 11% → 10% transition
@@ -60,7 +60,9 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 
 ### How it works
 
-Each account is authenticated separately through the OpenAI/Codex sign-in flow. Quota and account token totals are requested for the linked account. The green LIVE indicator and active-chat count are derived from Codex session files on the Windows PC where Token Meter is running.
+Each account is authenticated separately through the OpenAI/Codex sign-in flow. Quota and account token totals are requested for the linked account. A dedicated local LIVE row derives the active-chat count from Codex session files on the Windows PC where Token Meter is running.
+
+Several ChatGPT workspaces can legitimately use the same e-mail address. Token Meter therefore keeps desktop LIVE activity in its own local row instead of assigning it to the first matching account card. This prevents active chats from disappearing inside a depleted or collapsed workspace while keeping account quota and token totals correctly separated.
 
 The account service can publish the current daily-usage bucket later than the lifetime total. Until that bucket arrives, Token Meter shows `Today: awaiting API` or, when local Codex activity is available, a clearly marked local minimum. The local minimum covers this PC only; the server value can later include usage from other devices.
 
@@ -91,7 +93,7 @@ Read the complete [privacy information](PRIVACY.md) and [security policy](SECURI
 3. Start Token Meter and select **+** to add an account.
 4. Complete the official OpenAI sign-in in your browser.
 
-When a newer GitHub release is available, Token Meter downloads and installs it automatically when the app starts. Version 1.0.8 shows the download percentage and transferred megabytes. A complete cached installer is verified against GitHub's SHA-256 digest instead of being downloaded again. An independent temporary update worker waits for Token Meter to exit, runs the installer, waits for completion and explicitly restarts the installed application. Diagnostics are written to `update-worker.log` and `update-install.log` in the temporary Token Meter update folder.
+When a newer GitHub release is available, Token Meter downloads and installs it automatically when the app starts. Version 1.0.9 shows the download percentage and transferred megabytes. A complete cached installer is verified against GitHub's SHA-256 digest instead of being downloaded again. An independent temporary update worker waits for Token Meter to exit, runs the installer, waits for completion and explicitly restarts the installed application. Diagnostics are written to `update-worker.log` and `update-install.log` in the temporary Token Meter update folder.
 
 ### Support development
 
@@ -133,7 +135,7 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Verbleibendes Codex-Wochenkontingent und genaue Reset-Zeit vergleichen
 - Kontobezogene Tokenstände und Verbrauchsänderungen anzeigen
 - Aktuellen Tageswert des Kontodienstes sehen; bei Verzögerung mit klar gekennzeichnetem lokalen Mindestwert
-- Anzeigen, wie viele Codex-Chats auf diesem Windows-PC gerade verarbeitet werden
+- In einer eigenen lokalen LIVE-Zeile anzeigen, wie viele Codex-Chats auf diesem Windows-PC gerade verarbeitet werden
 - Konten mit dem größten verbleibenden Kontingent automatisch nach oben sortieren
 - Verbrauchte Konten platzsparend einklappen
 - Einmalige Windows-Warnung ausschließlich beim exakten Übergang von 11 % auf 10 %
@@ -151,7 +153,9 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 
 ### Funktionsweise
 
-Jedes Konto wird getrennt über den OpenAI-/Codex-Anmeldeablauf authentifiziert. Kontingent und kontobezogene Tokenstände werden für das verknüpfte Konto abgefragt. Die grüne LIVE-Anzeige und die Zahl aktiver Chats werden dagegen aus Codex-Sitzungsdateien auf genau dem Windows-PC ermittelt, auf dem Token Meter läuft.
+Jedes Konto wird getrennt über den OpenAI-/Codex-Anmeldeablauf authentifiziert. Kontingent und kontobezogene Tokenstände werden für das verknüpfte Konto abgefragt. Eine eigene lokale LIVE-Zeile ermittelt die Zahl aktiver Chats dagegen aus Codex-Sitzungsdateien auf genau dem Windows-PC, auf dem Token Meter läuft.
+
+Mehrere ChatGPT-Arbeitsbereiche können berechtigt dieselbe E-Mail-Adresse verwenden. Token Meter hält die Desktop-LIVE-Aktivität deshalb in einer eigenen lokalen Zeile, statt sie blind der ersten passenden Kontokarte zuzuordnen. So verschwinden aktive Chats nicht mehr in einem verbrauchten oder eingeklappten Arbeitsbereich, während Kontingent und Tokenstände weiterhin korrekt getrennt bleiben.
 
 Der Kontodienst kann den aktuellen Tages-Bucket später bereitstellen als den gesamten Tokenstand. Bis dahin zeigt Token Meter `Heute: API ausstehend` oder – falls lokale Codex-Aktivität vorhanden ist – einen klar gekennzeichneten lokalen Mindestwert. Dieser Mindestwert umfasst nur diesen PC; der spätere Serverwert kann auch Nutzung anderer Geräte enthalten.
 
@@ -182,7 +186,7 @@ Lies die vollständigen [Datenschutzinformationen](PRIVACY.md) und die [Sicherhe
 3. Token Meter starten und über **+** ein Konto hinzufügen.
 4. Die offizielle OpenAI-Anmeldung im Browser abschließen.
 
-Wenn ein neueres GitHub-Release verfügbar ist, lädt Token Meter es beim Programmstart automatisch herunter und installiert es. Version 1.0.8 zeigt dabei Prozent und übertragene Megabyte. Ein vollständiger zwischengespeicherter Installer wird anhand der GitHub-SHA-256-Prüfsumme geprüft und nicht erneut heruntergeladen. Ein unabhängiger temporärer Update-Wächter wartet auf das Programmende, führt den Installer aus, wartet auf dessen Abschluss und startet die installierte Anwendung ausdrücklich neu. Diagnosen stehen als `update-worker.log` und `update-install.log` im temporären Token-Meter-Updateordner.
+Wenn ein neueres GitHub-Release verfügbar ist, lädt Token Meter es beim Programmstart automatisch herunter und installiert es. Version 1.0.9 zeigt dabei Prozent und übertragene Megabyte. Ein vollständiger zwischengespeicherter Installer wird anhand der GitHub-SHA-256-Prüfsumme geprüft und nicht erneut heruntergeladen. Ein unabhängiger temporärer Update-Wächter wartet auf das Programmende, führt den Installer aus, wartet auf dessen Abschluss und startet die installierte Anwendung ausdrücklich neu. Diagnosen stehen als `update-worker.log` und `update-install.log` im temporären Token-Meter-Updateordner.
 
 ### Entwicklung unterstützen
 
