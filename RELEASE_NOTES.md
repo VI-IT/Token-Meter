@@ -1,35 +1,27 @@
-# Token Meter by VI-IT 1.0.11
+# Token Meter by VI-IT 1.0.12
 
 ## English
 
-Restores reliable per-account LIVE activity and prevents unnecessary repeated sign-in requests.
+Restores dynamic window sizing for the depleted-account section.
 
-- Stops forcing an OAuth token refresh during every periodic account check
-- Uses the passive account status read recommended by the Codex app-server protocol
-- Matches ChatGPT/Codex desktop activity to the correct linked account when the result is unambiguous
-- Shows local LIVE chat count and local consumption inside that account card again
-- Keeps an unassigned local row only when several workspaces cannot be distinguished safely
-- Replaces the unclear `Today: awaiting API` text with `Consumed today: not yet reported by OpenAI`
-- Clarifies that the account token figure is total consumption, not a remaining token balance
-- Explains that OpenAI supplies remaining weekly percentage and reset time, but no fixed absolute token capacity
-- Preserves all existing accounts, authentication profiles, settings and quota history during the update
+- Expanding **Depleted accounts** grows the window once to fit the newly visible account cards
+- Collapsing the section shrinks the window once to fit the remaining content
+- The height remains limited to the available Windows work area; additional content stays scrollable
+- Normal background refreshes still preserve the window size selected manually by the user
+- Keeps all existing accounts, authentication profiles, settings and quota history during the update
 
 ## Deutsch
 
-Stellt die zuverlässige LIVE-Anzeige pro Konto wieder her und verhindert unnötige wiederholte Anmeldeaufforderungen.
+Stellt die dynamische Fensterhöhe für den Bereich der verbrauchten Konten wieder her.
 
-- Erzwingt bei der regelmäßigen Kontoprüfung nicht mehr jedes Mal einen OAuth-Token-Refresh
-- Verwendet die passive Kontoabfrage des Codex-App-Server-Protokolls
-- Ordnet ChatGPT-/Codex-Desktop-Aktivität wieder dem richtigen verknüpften Konto zu, wenn das Ergebnis eindeutig ist
-- Zeigt lokale LIVE-Chats und lokalen Verbrauch wieder direkt in dieser Kontokarte
-- Behält die getrennte lokale Zeile nur dann bei, wenn mehrere Arbeitsbereiche nicht sicher unterschieden werden können
-- Ersetzt den unklaren Text `Heute: API ausstehend` durch `Heute verbraucht: von OpenAI noch nicht gemeldet`
-- Stellt klar, dass die Tokenzahl den Gesamtverbrauch und kein verbleibendes Token-Guthaben darstellt
-- Erklärt, dass OpenAI Restprozent und Reset-Zeit, aber keine feste absolute Token-Gesamtmenge liefert
+- Beim Aufklappen von **Verbrauchte Konten** wächst das Fenster einmalig passend zu den eingeblendeten Kontokarten
+- Beim Zuklappen wird das Fenster einmalig wieder an den verbleibenden Inhalt angepasst
+- Die Höhe bleibt auf den verfügbaren Windows-Arbeitsbereich begrenzt; zusätzlicher Inhalt bleibt scrollbar
+- Normale Hintergrund-Aktualisierungen behalten weiterhin die vom Benutzer manuell gewählte Fenstergröße bei
 - Behält beim Update alle bestehenden Konten, Anmeldeprofile, Einstellungen und den Kontingentverlauf bei
 
 ## Verification / Prüfung
 
 `Token-Meter-by-VI-IT-Setup.exe`
 
-SHA-256: `FBEA72C60D85C3031A1856A2E1CA96F2ACF821FB59A7D34623C5C4AFD9275F64`
+SHA-256: `3D4C0B63A2DE468D23DD32A9946D52DDCAC56879FD6C50BD9892B3371587FC8B`
