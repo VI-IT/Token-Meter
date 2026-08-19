@@ -24,9 +24,9 @@
     "name": "Token Meter by VI-IT",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Windows 10, Windows 11",
-    "softwareVersion": "1.0.9",
-    "description": "Persistent Windows alerts and history for Codex quota resets, with weekly quota, compact account monitor, taskbar progress, token totals and multi-account monitoring.",
-    "featureList": "Persistent Codex reset alerts, reset history, compact quota monitor, Windows taskbar progress, weekly quota monitoring, account token totals, multiple ChatGPT accounts",
+    "softwareVersion": "1.0.11",
+    "description": "Persistent Windows alerts and history for Codex quota resets, with weekly quota, per-account LIVE activity, account consumption totals and multi-account monitoring.",
+    "featureList": "Persistent Codex reset alerts, reset history, per-account local LIVE activity, compact quota monitor, Windows taskbar progress, weekly quota monitoring, multiple ChatGPT accounts",
     "downloadUrl": "https://github.com/VI-IT/Token-Meter/releases/latest/download/Token-Meter-by-VI-IT-Setup.exe",
     "url": "https://vi-it.github.io/Token-Meter/",
     "author": {"@type": "Organization", "name": "VI-IT", "url": "https://www.vi-it.de"},
@@ -45,7 +45,7 @@
     <section id="english" class="wrap hero">
       <p><strong>Windows desktop widget</strong></p>
       <h1>Get alerted when Codex resets globally.</h1>
-      <p>Receive automatic Windows notifications for newly reported global Codex usage resets. Then monitor weekly quota, token totals and the real active-chat count in a dedicated local LIVE row.</p>
+      <p>Receive automatic Windows notifications for newly reported global Codex usage resets. Then monitor weekly quota, account consumption and the real active-chat count inside the safely matched account card.</p>
       <a class="button" href="https://github.com/VI-IT/Token-Meter/releases/latest/download/Token-Meter-by-VI-IT-Setup.exe">Download for Windows</a>
       <a class="button alt" href="#deutsch">Deutsche Anleitung</a>
       <img class="shot" src="assets/token-meter-live-en.png" alt="English Token Meter interface showing anonymized accounts and live local Codex activity">
@@ -57,7 +57,7 @@
         <article class="card"><h3>Persistent reset alerts</h3><p class="muted">Classifies announcements, account-level detections and global confirmations. Notices remain visible until acknowledged and are stored in a reset history.</p></article>
         <article class="card"><h3>Weekly quota</h3><p class="muted">Compare remaining percentages and exact reset times for every linked account.</p></article>
         <article class="card"><h3>Compact account monitor</h3><p class="muted">Click an account to show a movable percentage monitor. It flashes on quota changes and can minimize to native Windows taskbar progress.</p></article>
-        <article class="card"><h3>Live activity on this PC</h3><p class="muted">See how many Codex chats are actively processing on this Windows PC. Other devices are not included in this live count.</p></article>
+        <article class="card"><h3>Per-account LIVE activity</h3><p class="muted">See how many Codex chats are processing on this Windows PC inside the safely matched account. Ambiguous activity remains unassigned instead of appearing on the wrong account.</p></article>
         <article class="card"><h3>Smart account order</h3><p class="muted">Accounts with usable capacity stay at the top; depleted accounts remain collapsed.</p></article>
         <article class="card"><h3>Reliable automatic updates</h3><p class="muted">Shows download progress, verifies GitHub's SHA-256 digest and uses an independent worker to install and restart the app.</p></article>
       </div>
@@ -72,7 +72,7 @@
 
     <section id="deutsch" class="wrap section" lang="de">
       <h2>Deutsche Anleitung</h2>
-      <p>Token Meter by VI-IT meldet neu veröffentlichte globale Codex-Kontingentresets automatisch per Windows-Mitteilung. Zusätzlich zeigt es Wochenkontingent, Tokenstände und die echte Zahl aktiver Chats in einer eigenen lokalen LIVE-Zeile.</p>
+      <p>Token Meter by VI-IT meldet neu veröffentlichte globale Codex-Kontingentresets automatisch per Windows-Mitteilung. Zusätzlich zeigt es Wochenkontingent, Gesamtverbrauch und die echte Zahl aktiver lokaler Chats in der sicher zugeordneten Kontokarte.</p>
       <img class="shot" src="assets/token-meter-live-de.png" alt="Deutsche Token-Meter-Oberfläche mit anonymisierten Konten und lokaler Codex-Liveaktivität">
       <div class="grid">
         <article class="card"><h3>Dauerhafte Reset-Meldungen</h3><p class="muted">Unterscheidet Ankündigungen, einzelne Konto-Resets und globale Bestätigungen. Hinweise bleiben bis zur Bestätigung sichtbar und werden im Verlauf gespeichert.</p></article>
@@ -80,7 +80,7 @@
         <article class="card"><h3>Zuverlässige Updates</h3><p class="muted">Zeigt den Downloadfortschritt, prüft die GitHub-Prüfsumme und startet nach der Installation über einen unabhängigen Wächter neu.</p></article>
         <article class="card"><h3>Automatische Sprache</h3><p class="muted">Unter deutschem Windows erscheint die Oberfläche auf Deutsch, bei allen anderen Windows-Sprachen auf Englisch.</p></article>
         <article class="card"><h3>10-%-Warnung</h3><p class="muted">Die Windows-Mitteilung erscheint einmalig nur beim exakten Übergang von 11 % auf 10 %.</p></article>
-        <article class="card"><h3>Lokale Daten</h3><p class="muted">Konten und Authentifizierungsdaten bleiben lokal auf deinem Windows-Gerät.</p></article>
+        <article class="card"><h3>LIVE pro Konto</h3><p class="muted">Lokale Chats erscheinen in der sicher erkannten Kontokarte. Bei Mehrdeutigkeit wird keine falsche Zuordnung erzwungen.</p></article>
       </div>
       <p><a class="button" href="https://github.com/VI-IT/Token-Meter/releases/latest/download/Token-Meter-by-VI-IT-Setup.exe">Installer herunterladen</a></p>
     </section>
