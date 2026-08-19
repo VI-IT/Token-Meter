@@ -41,6 +41,8 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - Monitor multiple separately authenticated ChatGPT/OpenAI accounts
 - Compare remaining Codex weekly quota and exact reset time
 - See token totals and consumption changes reported for each account
+- See a separate OpenAI credit balance when the account service actually reports one
+- See estimated tokens, credits or USD cost for currently active sessions when OpenAI enables the new Codex 0.148 thread-usage data for that workspace
 - See the current daily value from the account service, with a clearly marked local minimum while that value is delayed
 - See how many Codex chats are actively processing on this Windows PC, inside the matched account card whenever the account can be identified safely
 - Automatically rank accounts with the most remaining capacity first
@@ -61,6 +63,8 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 ### How it works
 
 Each account is authenticated separately through the OpenAI/Codex sign-in flow. Quota and account consumption totals are requested for the linked account. Local LIVE activity is derived from Codex session files on the Windows PC where Token Meter is running.
+
+Version 1.0.13 embeds the official stable Codex 0.148.0 component. Token Meter uses its newer account-usage response to show a separate credit balance whenever OpenAI supplies one. For eligible workspaces, it also requests the optional per-thread token and estimated credit/cost figures for locally active sessions. OpenAI does not return those estimates for every account, so the extra line stays hidden when the data is unavailable; weekly quota and local LIVE monitoring continue normally.
 
 Token Meter identifies the account currently used by the ChatGPT/Codex desktop session and places its LIVE chat count and local consumption back inside the matching account card. Several ChatGPT workspaces can legitimately use the same e-mail address, so matching also uses the account's reported usage and reset windows. If the result is still ambiguous, Token Meter uses a separate local row instead of assigning activity to the wrong account.
 
@@ -136,6 +140,8 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Mehrere getrennt angemeldete ChatGPT-/OpenAI-Konten überwachen
 - Verbleibendes Codex-Wochenkontingent und genaue Reset-Zeit vergleichen
 - Kontobezogene Tokenstände und Verbrauchsänderungen anzeigen
+- Separates OpenAI-Credit-Guthaben anzeigen, sofern der Kontodienst für das Konto tatsächlich eines meldet
+- Geschätzte Tokens, Credits oder USD-Kosten aktiver Sitzungen sehen, sofern OpenAI die neue Codex-0.148-Sitzungsauswertung für den jeweiligen Workspace freigibt
 - Aktuellen Tageswert des Kontodienstes sehen; bei Verzögerung mit klar gekennzeichnetem lokalen Mindestwert
 - In der passenden Kontokarte anzeigen, wie viele Codex-Chats auf diesem Windows-PC gerade verarbeitet werden, sobald das Konto sicher zugeordnet werden kann
 - Konten mit dem größten verbleibenden Kontingent automatisch nach oben sortieren
@@ -156,6 +162,8 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 ### Funktionsweise
 
 Jedes Konto wird getrennt über den OpenAI-/Codex-Anmeldeablauf authentifiziert. Kontingent und kontobezogener Gesamtverbrauch werden für das verknüpfte Konto abgefragt. Die lokale LIVE-Aktivität wird aus Codex-Sitzungsdateien auf genau dem Windows-PC ermittelt, auf dem Token Meter läuft.
+
+Version 1.0.13 enthält die offizielle stabile Codex-Komponente 0.148.0. Token Meter nutzt deren erweiterte Kontoauskunft, um ein separates Credit-Guthaben anzuzeigen, sobald OpenAI dieses liefert. Bei dafür freigeschalteten Workspaces werden zusätzlich die optionalen Token- sowie geschätzten Credit-/Kostenwerte der lokal aktiven Sitzungen abgefragt. OpenAI stellt diese Schätzwerte nicht für jedes Konto bereit; fehlen sie, bleibt die Zusatzzeile ausgeblendet und Wochenkontingent sowie lokale LIVE-Erkennung funktionieren unverändert weiter.
 
 Token Meter erkennt das gerade von der ChatGPT-/Codex-Desktop-Sitzung verwendete Konto und zeigt LIVE-Chats sowie lokalen Verbrauch wieder in der passenden Kontokarte an. Mehrere ChatGPT-Arbeitsbereiche können dieselbe E-Mail-Adresse verwenden; deshalb werden zusätzlich der gemeldete Verbrauch und die Reset-Fenster verglichen. Bleibt die Zuordnung mehrdeutig, erscheint eine getrennte lokale Zeile, statt Aktivität einem falschen Konto zuzuweisen.
 

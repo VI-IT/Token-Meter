@@ -1,27 +1,33 @@
-# Token Meter by VI-IT 1.0.12
+# Token Meter by VI-IT 1.0.13
 
 ## English
 
-Restores dynamic window sizing for the depleted-account section.
+Updates the embedded Codex component and adds truthful, capability-based credit and session-usage details.
 
-- Expanding **Depleted accounts** grows the window once to fit the newly visible account cards
-- Collapsing the section shrinks the window once to fit the remaining content
-- The height remains limited to the available Windows work area; additional content stays scrollable
-- Normal background refreshes still preserve the window size selected manually by the user
+- Replaces the embedded Codex component with the official stable Codex CLI 0.148.0
+- Shows the separate OpenAI credit balance only when the account service reports an actual balance
+- Requests optional active-session token and estimated credit/USD figures introduced with Codex 0.148
+- Keeps those optional details hidden for accounts or workspaces where OpenAI does not provide them
+- Uses local session metadata to keep the LIVE count assigned to the matching account, with a separate local row when the match is ambiguous
+- Adds compatibility checks for the 0.148 app-server handshake, account usage, thread listing and per-thread usage response
+- Includes the authentication, reconnect and Windows reliability fixes shipped in Codex 0.148
 - Keeps all existing accounts, authentication profiles, settings and quota history during the update
 
 ## Deutsch
 
-Stellt die dynamische Fensterhöhe für den Bereich der verbrauchten Konten wieder her.
+Aktualisiert die integrierte Codex-Komponente und ergänzt ehrliche, nur bei vorhandener Unterstützung sichtbare Credit- und Sitzungsdaten.
 
-- Beim Aufklappen von **Verbrauchte Konten** wächst das Fenster einmalig passend zu den eingeblendeten Kontokarten
-- Beim Zuklappen wird das Fenster einmalig wieder an den verbleibenden Inhalt angepasst
-- Die Höhe bleibt auf den verfügbaren Windows-Arbeitsbereich begrenzt; zusätzlicher Inhalt bleibt scrollbar
-- Normale Hintergrund-Aktualisierungen behalten weiterhin die vom Benutzer manuell gewählte Fenstergröße bei
+- Ersetzt die integrierte Codex-Komponente durch die offizielle stabile Codex CLI 0.148.0
+- Zeigt das separate OpenAI-Credit-Guthaben nur, wenn der Kontodienst ein echtes Guthaben meldet
+- Fragt die mit Codex 0.148 eingeführten optionalen Token- sowie geschätzten Credit-/USD-Werte aktiver Sitzungen ab
+- Blendet diese Zusatzdaten bei Konten oder Workspaces ohne OpenAI-Unterstützung vollständig aus
+- Ordnet die lokale LIVE-Anzahl weiterhin anhand lokaler Sitzungsmetadaten dem passenden Konto zu und verwendet bei Mehrdeutigkeit eine getrennte lokale Zeile
+- Ergänzt Kompatibilitätsprüfungen für 0.148-Handshake, Kontoauskunft, Sitzungsliste und sitzungsbezogene Nutzung
+- Übernimmt die in Codex 0.148 enthaltenen Verbesserungen für Anmeldung, Wiederverbindung und Windows-Zuverlässigkeit
 - Behält beim Update alle bestehenden Konten, Anmeldeprofile, Einstellungen und den Kontingentverlauf bei
 
 ## Verification / Prüfung
 
 `Token-Meter-by-VI-IT-Setup.exe`
 
-SHA-256: `3D4C0B63A2DE468D23DD32A9946D52DDCAC56879FD6C50BD9892B3371587FC8B`
+SHA-256: `AC96814B0A302C8383984D90227B130DFAAEAD482552A0D07C310B45FCCD6DC0`
