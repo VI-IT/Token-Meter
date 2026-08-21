@@ -1,33 +1,57 @@
-# Token Meter by VI-IT 1.0.13
+# Token Meter by VI-IT 1.0.17
 
 ## English
 
-Updates the embedded Codex component and adds truthful, capability-based credit and session-usage details.
+Makes changelog translation user-controlled and adds visible automatic-update progress.
 
-- Replaces the embedded Codex component with the official stable Codex CLI 0.148.0
-- Shows the separate OpenAI credit balance only when the account service reports an actual balance
-- Requests optional active-session token and estimated credit/USD figures introduced with Codex 0.148
-- Keeps those optional details hidden for accounts or workspaces where OpenAI does not provide them
-- Uses local session metadata to keep the LIVE count assigned to the matching account, with a separate local row when the match is ambiguous
-- Adds compatibility checks for the 0.148 app-server handshake, account usage, thread listing and per-thread usage response
-- Includes the authentication, reconnect and Windows reliability fixes shipped in Codex 0.148
+- Adds a new updates button immediately to the left of the add-account button
+- Reads the official OpenAI ChatGPT and Codex changelog directly from learn.chatgpt.com
+- Counts previously unseen official entries from the latest seven calendar days
+- Shows the unread count in a red badge; opening the view clears the count for the entries currently shown
+- Re-enables the badge automatically when OpenAI publishes another entry
+- Opens the changelog in a resizable window centered on the current screen
+- Always opens every changelog entry with the English OpenAI original
+- Adds one **Translate** button to every entry when Token Meter runs in German
+- Places that button at the beginning of each card before the potentially long changelog body
+- Contacts Google Translate only after the user selects that button and translates only the selected public entry
+- Sends long translations sequentially instead of creating parallel Google requests
+- Recognizes Google's HTTP 429 response, pauses further attempts for ten minutes and shows a precise per-entry message
+- Caches successful German translations locally and lets the user switch the selected card back to its original
+- Shows a failure only on the selected card while leaving all English originals available
+- Opens a dedicated progress window while an automatic update is downloaded
+- Shows the installer's progress during the unattended installation and restarts Token Meter afterwards
+- Caches the most recently retrieved entries and read IDs locally for temporary offline use
+- Sends only the public OpenAI changelog text for translation; no Token Meter account, token or authentication data is sent to Google
+- Adds no bundled AI translation model and therefore no large model payload to the installer
 - Keeps all existing accounts, authentication profiles, settings and quota history during the update
 
 ## Deutsch
 
-Aktualisiert die integrierte Codex-Komponente und ergänzt ehrliche, nur bei vorhandener Unterstützung sichtbare Credit- und Sitzungsdaten.
+Macht Changelog-Übersetzungen zur bewussten Benutzerauswahl und zeigt den Fortschritt automatischer Programmupdates sichtbar an.
 
-- Ersetzt die integrierte Codex-Komponente durch die offizielle stabile Codex CLI 0.148.0
-- Zeigt das separate OpenAI-Credit-Guthaben nur, wenn der Kontodienst ein echtes Guthaben meldet
-- Fragt die mit Codex 0.148 eingeführten optionalen Token- sowie geschätzten Credit-/USD-Werte aktiver Sitzungen ab
-- Blendet diese Zusatzdaten bei Konten oder Workspaces ohne OpenAI-Unterstützung vollständig aus
-- Ordnet die lokale LIVE-Anzahl weiterhin anhand lokaler Sitzungsmetadaten dem passenden Konto zu und verwendet bei Mehrdeutigkeit eine getrennte lokale Zeile
-- Ergänzt Kompatibilitätsprüfungen für 0.148-Handshake, Kontoauskunft, Sitzungsliste und sitzungsbezogene Nutzung
-- Übernimmt die in Codex 0.148 enthaltenen Verbesserungen für Anmeldung, Wiederverbindung und Windows-Zuverlässigkeit
+- Fügt direkt links neben dem Plus für neue Konten einen Neuerungs-Button ein
+- Liest den offiziellen ChatGPT- und Codex-Changelog direkt von learn.chatgpt.com
+- Zählt bisher ungelesene offizielle Einträge aus den letzten sieben Kalendertagen
+- Zeigt die Anzahl als rote Zahl; beim Öffnen gelten die aktuell dargestellten Einträge als gelesen
+- Aktiviert die rote Zahl automatisch wieder, sobald OpenAI einen weiteren Eintrag veröffentlicht
+- Öffnet den Changelog in einem größenveränderbaren Fenster mittig auf dem aktuellen Bildschirm
+- Öffnet jeden Changelog-Eintrag grundsätzlich mit dem englischen OpenAI-Original
+- Zeigt in der deutschen Oberfläche bei jedem Eintrag einen eigenen Button **Übersetzen**
+- Platziert diesen Button direkt am Anfang jeder Karte vor dem möglicherweise langen Changelog-Text
+- Kontaktiert Google Translate erst nach diesem Klick und übersetzt ausschließlich den ausgewählten öffentlichen Eintrag
+- Übersetzt lange Texte nacheinander, statt mehrere Google-Anfragen parallel auszulösen
+- Erkennt Googles HTTP-Status 429, pausiert weitere Versuche zehn Minuten und zeigt den konkreten Grund direkt am Eintrag
+- Speichert erfolgreiche deutsche Übersetzungen lokal und erlaubt für die gewählte Karte den Wechsel zurück zum Original
+- Zeigt einen Übersetzungsfehler ausschließlich an der ausgewählten Karte; alle englischen Originale bleiben verfügbar
+- Öffnet beim Herunterladen eines automatischen Programmupdates ein eigenes Fortschrittsfenster
+- Zeigt anschließend den Installationsfortschritt, installiert weiterhin unbeaufsichtigt und startet Token Meter danach neu
+- Speichert den zuletzt geladenen Stand und gelesene IDs lokal für vorübergehenden Offlinebetrieb
+- Übermittelt zur Übersetzung ausschließlich öffentlichen OpenAI-Changelog-Text; keine Token-Meter-Konten, Tokenstände oder Anmeldedaten gehen an Google
+- Enthält kein lokales KI-Übersetzungsmodell und vergrößert den Installer daher nicht um ein Modellpaket
 - Behält beim Update alle bestehenden Konten, Anmeldeprofile, Einstellungen und den Kontingentverlauf bei
 
 ## Verification / Prüfung
 
 `Token-Meter-by-VI-IT-Setup.exe`
 
-SHA-256: `AC96814B0A302C8383984D90227B130DFAAEAD482552A0D07C310B45FCCD6DC0`
+SHA-256: `73FFDA9D4793D757566F9B892487E044F6BF5650A2CB3922EE0D86A3C92049B9`
