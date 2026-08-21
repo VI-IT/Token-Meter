@@ -35,6 +35,10 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 ### Features
 
 - Receive automatic Windows alerts for newly reported global Codex usage resets
+- See unread official ChatGPT and Codex changelog entries from the last seven days in a red header badge
+- Open a centered in-app changelog view; opening it marks the currently shown OpenAI entries as read
+- Always show the original English OpenAI changelog and, on German Windows, offer a separate **Translate** button on every entry
+- Translate only the entry selected by the user through Google Translate and cache that German result locally
 - Keep reset notices visible in the app until they are acknowledged
 - Review a persistent reset history with announced, account-detected, globally confirmed and rejected states
 - Detect a fresh seven-day quota window even when the first observed value is already 95–99%
@@ -55,7 +59,7 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - Click an account card to open a movable compact quota monitor
 - Minimize the compact monitor to a clean native Windows taskbar progress indicator
 - Flash the compact monitor briefly when the remaining weekly percentage decreases
-- Install future GitHub releases automatically and silently at startup
+- Install future GitHub releases automatically at startup while showing download and installation progress
 - Wait for Token Meter and its background processes to exit before replacing program files during an update
 - Show download percentage and transferred megabytes while an update is being retrieved
 - Verify cached installers against GitHub's SHA-256 digest and restart through an independent update worker
@@ -64,7 +68,11 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 
 Each account is authenticated separately through the OpenAI/Codex sign-in flow. Quota and account consumption totals are requested for the linked account. Local LIVE activity is derived from Codex session files on the Windows PC where Token Meter is running.
 
-Version 1.0.13 embeds the official stable Codex 0.148.0 component. Token Meter uses its newer account-usage response to show a separate credit balance whenever OpenAI supplies one. For eligible workspaces, it also requests the optional per-thread token and estimated credit/cost figures for locally active sessions. OpenAI does not return those estimates for every account, so the extra line stays hidden when the data is unavailable; weekly quota and local LIVE monitoring continue normally.
+The header update indicator reads the fixed official OpenAI page at [`learn.chatgpt.com/docs/changelog`](https://learn.chatgpt.com/docs/changelog) when Token Meter starts and every six hours while it is running. It counts previously unseen entries dated within the latest seven calendar days. Opening the view marks only the currently displayed entry IDs as read, so a later OpenAI entry can light the badge again. The most recently retrieved entries and read IDs are cached locally for offline display.
+
+The changelog always opens with the original English OpenAI text. On German installations, each entry has its own **Translate** button. Google Translate is contacted only after that button is selected and receives only the public text of that one entry. The returned German text is cached against a hash of the OpenAI source and reused until the source changes. A failed translation affects only the selected card; its English original remains visible. English installations never contact the translation service. No local AI translation model is bundled.
+
+The current build embeds the official stable Codex 0.148.0 component. Token Meter uses its newer account-usage response to show a separate credit balance whenever OpenAI supplies one. For eligible workspaces, it also requests the optional per-thread token and estimated credit/cost figures for locally active sessions. OpenAI does not return those estimates for every account, so the extra line stays hidden when the data is unavailable; weekly quota and local LIVE monitoring continue normally.
 
 Token Meter identifies the account currently used by the ChatGPT/Codex desktop session and places its LIVE chat count and local consumption back inside the matching account card. Several ChatGPT workspaces can legitimately use the same e-mail address, so matching also uses the account's reported usage and reset windows. If the result is still ambiguous, Token Meter uses a separate local row instead of assigning activity to the wrong account.
 
@@ -86,6 +94,7 @@ The central ChatGPT button opens the existing official ChatGPT desktop app. Open
 
 - No passwords are requested or stored by Token Meter
 - No analytics, advertising or VI-IT cloud service is used
+- The optional news indicator requests the public official OpenAI changelog; only a German user's explicit **Translate** action sends the selected public entry to Google, never Token Meter accounts, token values or authentication data
 - Account profiles, authentication material and usage snapshots remain on the local Windows device
 - The distributed installer contains no developer accounts, cookies, sessions, caches or access tokens
 - Removing an account from Token Meter removes only its local Token Meter profile
@@ -134,6 +143,10 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 ### Funktionen
 
 - Automatische Windows-Mitteilungen über neu gemeldete globale Codex-Kontingentresets erhalten
+- Ungelesene offizielle ChatGPT- und Codex-Changelog-Einträge der letzten sieben Tage als rote Zahl in der Kopfzeile sehen
+- Mittig geöffneten Changelog direkt in Token Meter lesen; beim Öffnen gelten die aktuell angezeigten OpenAI-Einträge als gelesen
+- Englischen OpenAI-Originaltext immer direkt anzeigen und unter deutschem Windows pro Eintrag einen eigenen Button **Übersetzen** anbieten
+- Ausschließlich den vom Benutzer ausgewählten Eintrag über Google Translate übersetzen und die deutsche Fassung lokal speichern
 - Reset-Hinweise im Hauptfenster behalten, bis sie ausdrücklich bestätigt wurden
 - Gespeicherten Reset-Verlauf mit angekündigten, kontoabhängig erkannten, global bestätigten und verworfenen Ereignissen öffnen
 - Neues Sieben-Tage-Fenster auch dann erkennen, wenn der erste sichtbare Wert bereits bei 95–99 % liegt
@@ -154,7 +167,7 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Kontokarte anklicken und einen frei verschiebbaren kompakten Prozentmonitor öffnen
 - Kompaktmonitor mit sauberem Windows-Fortschrittsbalken in die Taskleiste minimieren
 - Kompaktmonitor bei sinkendem Wochenkontingent kurz aufleuchten lassen
-- Zukünftige GitHub-Versionen beim Programmstart automatisch und still installieren
+- Zukünftige GitHub-Versionen beim Programmstart automatisch installieren und dabei Download- sowie Installationsfortschritt sichtbar anzeigen
 - Vor dem Ersetzen der Programmdateien auf das vollständige Ende von Token Meter und seinen Hintergrundprozessen warten
 - Beim Herunterladen eines Updates Prozent und übertragene Megabyte anzeigen
 - Zwischengespeicherte Installer anhand der GitHub-SHA-256-Prüfsumme prüfen und über einen unabhängigen Update-Wächter neu starten
@@ -163,7 +176,11 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 
 Jedes Konto wird getrennt über den OpenAI-/Codex-Anmeldeablauf authentifiziert. Kontingent und kontobezogener Gesamtverbrauch werden für das verknüpfte Konto abgefragt. Die lokale LIVE-Aktivität wird aus Codex-Sitzungsdateien auf genau dem Windows-PC ermittelt, auf dem Token Meter läuft.
 
-Version 1.0.13 enthält die offizielle stabile Codex-Komponente 0.148.0. Token Meter nutzt deren erweiterte Kontoauskunft, um ein separates Credit-Guthaben anzuzeigen, sobald OpenAI dieses liefert. Bei dafür freigeschalteten Workspaces werden zusätzlich die optionalen Token- sowie geschätzten Credit-/Kostenwerte der lokal aktiven Sitzungen abgefragt. OpenAI stellt diese Schätzwerte nicht für jedes Konto bereit; fehlen sie, bleibt die Zusatzzeile ausgeblendet und Wochenkontingent sowie lokale LIVE-Erkennung funktionieren unverändert weiter.
+Die Neuerungsanzeige in der Kopfzeile liest beim Start und anschließend alle sechs Stunden ausschließlich die feste offizielle OpenAI-Seite [`learn.chatgpt.com/docs/changelog`](https://learn.chatgpt.com/docs/changelog). Gezählt werden bisher ungelesene Einträge aus den letzten sieben Kalendertagen. Beim Öffnen werden nur die gerade angezeigten Eintrags-IDs als gelesen gespeichert; ein späterer neuer OpenAI-Eintrag aktiviert die rote Zahl deshalb erneut. Der zuletzt geladene Stand und die gelesenen IDs bleiben lokal gespeichert, damit das Fenster auch bei einer vorübergehend fehlenden Verbindung Inhalt zeigen kann.
+
+Der Changelog öffnet immer mit dem englischen OpenAI-Originaltext. In der deutschen Oberfläche besitzt jeder Eintrag einen eigenen Button **Übersetzen**. Erst dieser bewusste Klick kontaktiert Google Translate und übermittelt ausschließlich den öffentlichen Text des gewählten Eintrags. Die deutsche Fassung wird über einen Hash dem OpenAI-Quelleintrag zugeordnet und bis zu einer Änderung wiederverwendet. Schlägt eine Übersetzung fehl, betrifft das nur die ausgewählte Karte und ihr englisches Original bleibt sichtbar. Englische Installationen kontaktieren den Übersetzungsdienst nie. Ein lokales KI-Übersetzungsmodell wird nicht mitgeliefert.
+
+Der aktuelle Build enthält die offizielle stabile Codex-Komponente 0.148.0. Token Meter nutzt deren erweiterte Kontoauskunft, um ein separates Credit-Guthaben anzuzeigen, sobald OpenAI dieses liefert. Bei dafür freigeschalteten Workspaces werden zusätzlich die optionalen Token- sowie geschätzten Credit-/Kostenwerte der lokal aktiven Sitzungen abgefragt. OpenAI stellt diese Schätzwerte nicht für jedes Konto bereit; fehlen sie, bleibt die Zusatzzeile ausgeblendet und Wochenkontingent sowie lokale LIVE-Erkennung funktionieren unverändert weiter.
 
 Token Meter erkennt das gerade von der ChatGPT-/Codex-Desktop-Sitzung verwendete Konto und zeigt LIVE-Chats sowie lokalen Verbrauch wieder in der passenden Kontokarte an. Mehrere ChatGPT-Arbeitsbereiche können dieselbe E-Mail-Adresse verwenden; deshalb werden zusätzlich der gemeldete Verbrauch und die Reset-Fenster verglichen. Bleibt die Zuordnung mehrdeutig, erscheint eine getrennte lokale Zeile, statt Aktivität einem falschen Konto zuzuweisen.
 
@@ -185,6 +202,7 @@ Der zentrale ChatGPT-Button öffnet die bereits installierte offizielle ChatGPT-
 
 - Token Meter fragt keine Passwörter ab und speichert keine Passwörter
 - Keine Analysefunktionen, Werbung oder VI-IT-Cloud
+- Die optionale Neuerungsanzeige ruft den öffentlichen offiziellen OpenAI-Changelog ab; erst ein ausdrücklicher Klick auf **Übersetzen** sendet den gewählten öffentlichen Eintrag an Google, niemals Token-Meter-Konten, Tokenwerte oder Anmeldedaten
 - Kontoprofile, Authentifizierungsdaten und Nutzungsstände bleiben lokal auf dem Windows-Gerät
 - Der veröffentlichte Installer enthält keine Entwicklerkonten, Cookies, Sitzungen, Caches oder Zugriffstoken
 - Das Entfernen eines Kontos löscht ausschließlich dessen lokales Token-Meter-Profil
