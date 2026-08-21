@@ -16,7 +16,7 @@
 
 Token Meter by VI-IT alerts Windows users when a newly reported global Codex usage reset appears in the public Codex Reset Timeline. The compact desktop widget also monitors remaining weekly quota, exact reset times, account token totals and live Codex activity across multiple ChatGPT accounts.
 
-<img src="assets/token-meter-live-en.png" alt="Token Meter English interface with live local Codex activity" width="480">
+<img src="assets/token-meter-reset-en.png" alt="Token Meter English interface with a persistent global Codex reset announcement and two active local chats" width="420">
 
 ### Download for Windows
 
@@ -93,7 +93,9 @@ The central ChatGPT button opens the existing official ChatGPT desktop app. Open
 ### Privacy and security
 
 - No passwords are requested or stored by Token Meter
-- No analytics, advertising or VI-IT cloud service is used
+- Optional technical diagnostics are off by default, require explicit consent and can be changed later in the About window
+- Diagnostics contain only app/Windows version information and sanitized crash details; never accounts, email addresses, quotas, token values, prompts or authentication data
+- Automatic updates preserve the existing diagnostics choice and never enable it
 - The optional news indicator requests the public official OpenAI changelog; only a German user's explicit **Translate** action sends the selected public entry to Google, never Token Meter accounts, token values or authentication data
 - Account profiles, authentication material and usage snapshots remain on the local Windows device
 - The distributed installer contains no developer accounts, cookies, sessions, caches or access tokens
@@ -124,7 +126,7 @@ Support is voluntary and does not unlock features.
 
 Token Meter by VI-IT benachrichtigt Windows-Nutzer, sobald in der öffentlichen Codex Reset Timeline ein neuer globaler Codex-Kontingentreset gemeldet wird. Das kompakte Desktop-Widget überwacht zusätzlich Wochenkontingent, genaue Reset-Zeiten, kontobezogene Tokenstände und lokale Codex-Liveaktivität für mehrere ChatGPT-Konten.
 
-<img src="assets/token-meter-live-de.png" alt="Deutsche Token-Meter-Oberfläche mit lokaler Codex-Liveaktivität" width="480">
+<img src="assets/token-meter-reset-de.png" alt="Deutsche Token-Meter-Oberfläche mit dauerhaftem globalem Codex-Reset-Hinweis und zwei aktiven lokalen Chats" width="420">
 
 ### Download für Windows
 
@@ -201,7 +203,9 @@ Der zentrale ChatGPT-Button öffnet die bereits installierte offizielle ChatGPT-
 ### Datenschutz und Sicherheit
 
 - Token Meter fragt keine Passwörter ab und speichert keine Passwörter
-- Keine Analysefunktionen, Werbung oder VI-IT-Cloud
+- Optionale technische Diagnosedaten sind standardmäßig ausgeschaltet, benötigen eine ausdrückliche Zustimmung und bleiben später im Infofenster änderbar
+- Diagnosedaten enthalten nur Programm-/Windows-Versionen und bereinigte Absturzinformationen; niemals Konten, E-Mail-Adressen, Kontingente, Tokenwerte, Eingaben oder Anmeldedaten
+- Automatische Updates behalten die vorhandene Diagnoseauswahl bei und aktivieren sie niemals selbstständig
 - Die optionale Neuerungsanzeige ruft den öffentlichen offiziellen OpenAI-Changelog ab; erst ein ausdrücklicher Klick auf **Übersetzen** sendet den gewählten öffentlichen Eintrag an Google, niemals Token-Meter-Konten, Tokenwerte oder Anmeldedaten
 - Kontoprofile, Authentifizierungsdaten und Nutzungsstände bleiben lokal auf dem Windows-Gerät
 - Der veröffentlichte Installer enthält keine Entwicklerkonten, Cookies, Sitzungen, Caches oder Zugriffstoken

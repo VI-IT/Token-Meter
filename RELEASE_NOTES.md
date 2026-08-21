@@ -1,57 +1,47 @@
-# Token Meter by VI-IT 1.0.17
+# Token Meter by VI-IT 1.0.18
 
 ## English
 
-Makes changelog translation user-controlled and adds visible automatic-update progress.
+Adds privacy-first, optional technical diagnostics for improving Token Meter.
 
-- Adds a new updates button immediately to the left of the add-account button
-- Reads the official OpenAI ChatGPT and Codex changelog directly from learn.chatgpt.com
-- Counts previously unseen official entries from the latest seven calendar days
-- Shows the unread count in a red badge; opening the view clears the count for the entries currently shown
-- Re-enables the badge automatically when OpenAI publishes another entry
-- Opens the changelog in a resizable window centered on the current screen
-- Always opens every changelog entry with the English OpenAI original
-- Adds one **Translate** button to every entry when Token Meter runs in German
-- Places that button at the beginning of each card before the potentially long changelog body
-- Contacts Google Translate only after the user selects that button and translates only the selected public entry
-- Sends long translations sequentially instead of creating parallel Google requests
-- Recognizes Google's HTTP 429 response, pauses further attempts for ten minutes and shows a precise per-entry message
-- Caches successful German translations locally and lets the user switch the selected card back to its original
-- Shows a failure only on the selected card while leaving all English originals available
-- Opens a dedicated progress window while an automatic update is downloaded
-- Shows the installer's progress during the unattended installation and restarts Token Meter afterwards
-- Caches the most recently retrieved entries and read IDs locally for temporary offline use
-- Sends only the public OpenAI changelog text for translation; no Token Meter account, token or authentication data is sent to Google
-- Adds no bundled AI translation model and therefore no large model payload to the installer
+- Adds an unchecked diagnostics opt-in to normal installer runs
+- Keeps automatic updates silent and preserves the user's existing choice
+- Adds the same setting to the **About Token Meter by VI-IT** window so it can be changed at any time
+- Reports one installation/start event for each newly installed Token Meter version only after opt-in
+- Reports sanitized technical details when Token Meter terminates because of an unhandled application error
+- Sends only Token Meter version, Windows version/build, processor architecture, consent version, event time and a random installation identifier
+- Stores only a one-way SHA-256 hash of the random installation identifier on the VI-IT service
+- Removes Windows usernames, email-address patterns, bearer tokens, OpenAI-style keys and JWT-shaped credentials from crash text before transmission and again on the server
+- Never sends OpenAI accounts, account aliases, email addresses, quotas, token values, prompts, conversations, files, cookies or authentication material
+- Uses the encrypted `telemetry.vi-it.de` endpoint backed by Cloudflare Workers and an EU-jurisdiction D1 database
+- Retains sanitized crash reports for 90 days and removes inactive installation summaries after 365 days
+- Updates the English and German privacy documentation with the exact payload, retention and opt-out behavior
 - Keeps all existing accounts, authentication profiles, settings and quota history during the update
+
+Technical diagnostics remain completely disabled unless the user actively enables them.
 
 ## Deutsch
 
-Macht Changelog-Übersetzungen zur bewussten Benutzerauswahl und zeigt den Fortschritt automatischer Programmupdates sichtbar an.
+Ergänzt datensparsame, freiwillige technische Diagnosedaten zur Verbesserung von Token Meter.
 
-- Fügt direkt links neben dem Plus für neue Konten einen Neuerungs-Button ein
-- Liest den offiziellen ChatGPT- und Codex-Changelog direkt von learn.chatgpt.com
-- Zählt bisher ungelesene offizielle Einträge aus den letzten sieben Kalendertagen
-- Zeigt die Anzahl als rote Zahl; beim Öffnen gelten die aktuell dargestellten Einträge als gelesen
-- Aktiviert die rote Zahl automatisch wieder, sobald OpenAI einen weiteren Eintrag veröffentlicht
-- Öffnet den Changelog in einem größenveränderbaren Fenster mittig auf dem aktuellen Bildschirm
-- Öffnet jeden Changelog-Eintrag grundsätzlich mit dem englischen OpenAI-Original
-- Zeigt in der deutschen Oberfläche bei jedem Eintrag einen eigenen Button **Übersetzen**
-- Platziert diesen Button direkt am Anfang jeder Karte vor dem möglicherweise langen Changelog-Text
-- Kontaktiert Google Translate erst nach diesem Klick und übersetzt ausschließlich den ausgewählten öffentlichen Eintrag
-- Übersetzt lange Texte nacheinander, statt mehrere Google-Anfragen parallel auszulösen
-- Erkennt Googles HTTP-Status 429, pausiert weitere Versuche zehn Minuten und zeigt den konkreten Grund direkt am Eintrag
-- Speichert erfolgreiche deutsche Übersetzungen lokal und erlaubt für die gewählte Karte den Wechsel zurück zum Original
-- Zeigt einen Übersetzungsfehler ausschließlich an der ausgewählten Karte; alle englischen Originale bleiben verfügbar
-- Öffnet beim Herunterladen eines automatischen Programmupdates ein eigenes Fortschrittsfenster
-- Zeigt anschließend den Installationsfortschritt, installiert weiterhin unbeaufsichtigt und startet Token Meter danach neu
-- Speichert den zuletzt geladenen Stand und gelesene IDs lokal für vorübergehenden Offlinebetrieb
-- Übermittelt zur Übersetzung ausschließlich öffentlichen OpenAI-Changelog-Text; keine Token-Meter-Konten, Tokenstände oder Anmeldedaten gehen an Google
-- Enthält kein lokales KI-Übersetzungsmodell und vergrößert den Installer daher nicht um ein Modellpaket
+- Fügt bei einer normalen Installation ein nicht vorausgewähltes Diagnose-Kontrollkästchen hinzu
+- Führt automatische Updates weiterhin unbeaufsichtigt aus und behält die vorhandene Auswahl des Benutzers bei
+- Fügt dieselbe Einstellung im Fenster **Info zu Token Meter by VI-IT** hinzu, sodass sie jederzeit geändert werden kann
+- Meldet erst nach Zustimmung je neu installierter Token-Meter-Version ein Installations-/Startereignis
+- Meldet bereinigte technische Informationen, wenn Token Meter wegen eines unbehandelten Programmfehlers beendet wird
+- Übermittelt ausschließlich Token-Meter-Version, Windows-Version/Build, Prozessorarchitektur, Einwilligungsversion, Ereigniszeitpunkt und eine zufällige Installationskennung
+- Speichert auf dem VI-IT-Dienst nur einen nicht umkehrbaren SHA-256-Hash der zufälligen Installationskennung
+- Entfernt Windows-Benutzernamen, E-Mail-Muster, Bearer-Tokens, OpenAI-ähnliche Schlüssel und JWT-förmige Zugangsdaten vor der Übertragung und erneut auf dem Server aus Absturztexten
+- Übermittelt niemals OpenAI-Konten, Kontobezeichnungen, E-Mail-Adressen, Kontingente, Tokenwerte, Eingaben, Unterhaltungen, Dateien, Cookies oder Authentifizierungsdaten
+- Verwendet den verschlüsselten Endpunkt `telemetry.vi-it.de` mit Cloudflare Workers und einer D1-Datenbank in EU-Gerichtsbarkeit
+- Bewahrt bereinigte Absturzberichte 90 Tage auf und löscht inaktive Installationszusammenfassungen nach 365 Tagen
+- Aktualisiert die deutsche und englische Datenschutzerklärung mit dem exakten Datenumfang, den Fristen und dem Abschaltverhalten
 - Behält beim Update alle bestehenden Konten, Anmeldeprofile, Einstellungen und den Kontingentverlauf bei
+
+Technische Diagnosedaten bleiben vollständig ausgeschaltet, solange der Benutzer sie nicht selbst aktiviert.
 
 ## Verification / Prüfung
 
 `Token-Meter-by-VI-IT-Setup.exe`
 
-SHA-256: `73FFDA9D4793D757566F9B892487E044F6BF5650A2CB3922EE0D86A3C92049B9`
+SHA-256: `2E078F9176C42DB1F3433DA61D37279C3F8E716C6ABB4D24979B54F1B1C496FD`
