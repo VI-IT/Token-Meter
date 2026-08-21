@@ -49,6 +49,7 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - See estimated tokens, credits or USD cost for currently active sessions when OpenAI enables the new Codex 0.148 thread-usage data for that workspace
 - See the current daily value from the account service, with a clearly marked local minimum while that value is delayed
 - See how many Codex chats are actively processing on this Windows PC, inside the matched account card whenever the account can be identified safely
+- Detect ChatGPT desktop account or workspace switches on the next LIVE refresh, discard the old assignment and never keep activity attached to the previous account
 - Automatically rank accounts with the most remaining capacity first
 - Keep depleted accounts collapsed until you need them
 - Receive a one-time Windows notification on the exact 11% → 10% transition
@@ -74,7 +75,7 @@ The changelog always opens with the original English OpenAI text. On German inst
 
 The current build embeds the official stable Codex 0.148.0 component. Token Meter uses its newer account-usage response to show a separate credit balance whenever OpenAI supplies one. For eligible workspaces, it also requests the optional per-thread token and estimated credit/cost figures for locally active sessions. OpenAI does not return those estimates for every account, so the extra line stays hidden when the data is unavailable; weekly quota and local LIVE monitoring continue normally.
 
-Token Meter identifies the account currently used by the ChatGPT/Codex desktop session and places its LIVE chat count and local consumption back inside the matching account card. Several ChatGPT workspaces can legitimately use the same e-mail address, so matching also uses the account's reported usage and reset windows. If the result is still ambiguous, Token Meter uses a separate local row instead of assigning activity to the wrong account.
+Token Meter reads the current ChatGPT/Codex desktop identity again before every LIVE refresh and places its local chat count and consumption inside the matching account card. When the desktop account or workspace changes, the previous assignment is invalidated immediately and the background identity reader is restarted so a cached old identity cannot remain attached to the former account. Several ChatGPT workspaces can legitimately use the same e-mail address; Token Meter therefore combines the fresh identity with a privacy-preserving one-way in-memory workspace fingerprint and the account's reported usage and reset windows. If the result is still ambiguous, Token Meter uses a separate local row instead of assigning activity to the wrong account.
 
 The account service can publish the current daily-usage bucket later than the lifetime total. Until that bucket arrives, Token Meter shows `Consumed today: not yet reported by OpenAI` or, when matched local Codex activity is available, a clearly marked local minimum. The local minimum covers this PC only; the server value can later include usage from other devices.
 
@@ -159,6 +160,7 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Geschätzte Tokens, Credits oder USD-Kosten aktiver Sitzungen sehen, sofern OpenAI die neue Codex-0.148-Sitzungsauswertung für den jeweiligen Workspace freigibt
 - Aktuellen Tageswert des Kontodienstes sehen; bei Verzögerung mit klar gekennzeichnetem lokalen Mindestwert
 - In der passenden Kontokarte anzeigen, wie viele Codex-Chats auf diesem Windows-PC gerade verarbeitet werden, sobald das Konto sicher zugeordnet werden kann
+- Wechsel des ChatGPT-Desktop-Kontos oder Arbeitsbereichs bei der nächsten LIVE-Aktualisierung erkennen, die alte Zuordnung verwerfen und Aktivität niemals am vorherigen Konto hängen lassen
 - Konten mit dem größten verbleibenden Kontingent automatisch nach oben sortieren
 - Verbrauchte Konten platzsparend einklappen
 - Einmalige Windows-Warnung ausschließlich beim exakten Übergang von 11 % auf 10 %
@@ -184,7 +186,7 @@ Der Changelog öffnet immer mit dem englischen OpenAI-Originaltext. In der deuts
 
 Der aktuelle Build enthält die offizielle stabile Codex-Komponente 0.148.0. Token Meter nutzt deren erweiterte Kontoauskunft, um ein separates Credit-Guthaben anzuzeigen, sobald OpenAI dieses liefert. Bei dafür freigeschalteten Workspaces werden zusätzlich die optionalen Token- sowie geschätzten Credit-/Kostenwerte der lokal aktiven Sitzungen abgefragt. OpenAI stellt diese Schätzwerte nicht für jedes Konto bereit; fehlen sie, bleibt die Zusatzzeile ausgeblendet und Wochenkontingent sowie lokale LIVE-Erkennung funktionieren unverändert weiter.
 
-Token Meter erkennt das gerade von der ChatGPT-/Codex-Desktop-Sitzung verwendete Konto und zeigt LIVE-Chats sowie lokalen Verbrauch wieder in der passenden Kontokarte an. Mehrere ChatGPT-Arbeitsbereiche können dieselbe E-Mail-Adresse verwenden; deshalb werden zusätzlich der gemeldete Verbrauch und die Reset-Fenster verglichen. Bleibt die Zuordnung mehrdeutig, erscheint eine getrennte lokale Zeile, statt Aktivität einem falschen Konto zuzuweisen.
+Token Meter liest die aktuelle Identität der ChatGPT-/Codex-Desktop-Sitzung vor jeder LIVE-Aktualisierung erneut und zeigt lokale Chats sowie lokalen Verbrauch in der passenden Kontokarte an. Wechselt das Desktop-Konto oder der Arbeitsbereich, wird die bisherige Zuordnung sofort verworfen und der interne Identitätsleser neu gestartet, damit keine zwischengespeicherte alte Identität am vorherigen Konto hängen bleibt. Mehrere ChatGPT-Arbeitsbereiche können dieselbe E-Mail-Adresse verwenden; deshalb kombiniert Token Meter die frische Identität mit einem datensparsamen, nicht umkehrbaren Arbeitsbereich-Fingerabdruck im Arbeitsspeicher sowie den gemeldeten Verbrauchs- und Reset-Fenstern. Bleibt die Zuordnung mehrdeutig, erscheint eine getrennte lokale Zeile, statt Aktivität einem falschen Konto zuzuweisen.
 
 Der Kontodienst kann den aktuellen Tages-Bucket später bereitstellen als den Gesamtverbrauch. Bis dahin zeigt Token Meter `Heute verbraucht: von OpenAI noch nicht gemeldet` oder – falls zugeordnete lokale Codex-Aktivität vorhanden ist – einen klar gekennzeichneten lokalen Mindestwert. Dieser Mindestwert umfasst nur diesen PC; der spätere Serverwert kann auch Nutzung anderer Geräte enthalten.
 
