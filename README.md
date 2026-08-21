@@ -57,6 +57,7 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - Rename accounts locally and reopen the official sign-in flow when needed
 - Use German automatically on German Windows; English on all other Windows display languages
 - Run in the Windows notification area and optionally start with Windows
+- Exit completely from the notification-area menu; the window X continues to hide the app there
 - Click an account card to open a movable compact quota monitor
 - Minimize the compact monitor to a clean native Windows taskbar progress indicator
 - Flash the compact monitor briefly when the remaining weekly percentage decreases
@@ -168,6 +169,7 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Konten lokal umbenennen und bei Bedarf die offizielle Browser-Anmeldung erneut öffnen
 - Deutsche Oberfläche unter deutschem Windows, sonst automatisch Englisch
 - Betrieb im Windows-Infobereich und optionaler Windows-Autostart
+- Vollständiges Beenden über das Menü im Infobereich; das Fenster-X legt die App weiterhin dort ab
 - Kontokarte anklicken und einen frei verschiebbaren kompakten Prozentmonitor öffnen
 - Kompaktmonitor mit sauberem Windows-Fortschrittsbalken in die Taskleiste minimieren
 - Kompaktmonitor bei sinkendem Wochenkontingent kurz aufleuchten lassen

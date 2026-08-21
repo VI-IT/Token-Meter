@@ -1,37 +1,41 @@
-# Token Meter by VI-IT 1.0.20
+# Token Meter by VI-IT 1.0.21
 
 ## English
 
-Fixes incorrect LIVE account attribution after switching the account or workspace in the ChatGPT desktop app.
+Fixes the explicit notification-area exit and the installer layout at high Windows scaling.
 
-- Reads the fresh ChatGPT/Codex desktop identity before every local LIVE refresh
-- Invalidates the previous account assignment immediately when the desktop account or workspace changes
-- Restarts the internal account reader so a cached old identity cannot remain attached to the former account
-- Treats the fresh local desktop identity as authoritative when a background response is stale
-- Distinguishes workspaces that use the same e-mail address through a privacy-preserving, one-way in-memory fingerprint
-- Keeps ambiguous local activity unassigned instead of showing it on the wrong account
-- Adds a sanitized installed integration check for the real mapping path; the report contains no e-mail addresses or account identifiers
+Also restores German changelog translation when Google's public JSON endpoint responds with HTTP 429 by automatically using Google's mobile translation page as a fallback.
+
+- **Exit** in the Windows notification-area menu now always terminates the Token Meter process after bounded background cleanup
+- Removes a dispatcher deadlock that could leave the executable running invisibly after Exit was selected
+- Keeps the window X behavior unchanged: X still hides Token Meter in the notification area
+- Stops a running Token Meter instance before the installer performs its file-in-use scan
+- Prevents the unnecessary “applications are using files” installer page after Token Meter was already exited
+- Renders the diagnostics checkbox caption separately so it is no longer clipped or struck through at 200% Windows scaling
+- Preserves the user’s existing diagnostics preference; first-time consent remains off by default
 - Keeps all linked accounts, authentication profiles, settings and quota history during the update
 
 ## Deutsch
 
-Behebt eine falsche LIVE-Kontozuordnung nach dem Wechsel des Kontos oder Arbeitsbereichs in der ChatGPT-Desktop-App.
+Behebt das ausdrückliche Beenden über den Windows-Infobereich und die Installer-Darstellung bei hoher Windows-Skalierung.
 
-- Liest die aktuelle ChatGPT-/Codex-Desktop-Identität vor jeder lokalen LIVE-Aktualisierung frisch ein
-- Verwirft die bisherige Kontozuordnung sofort, sobald das Desktop-Konto oder der Arbeitsbereich wechselt
-- Startet den internen Kontoleser neu, damit keine zwischengespeicherte alte Identität am vorherigen Konto hängen bleibt
-- Behandelt die frisch gelesene lokale Desktop-Identität als maßgeblich, wenn eine Hintergrundantwort veraltet ist
-- Unterscheidet Arbeitsbereiche mit derselben E-Mail-Adresse über einen datensparsamen, nicht umkehrbaren Fingerabdruck im Arbeitsspeicher
-- Lässt mehrdeutige lokale Aktivität bewusst ohne Kontozuordnung, statt sie beim falschen Konto anzuzeigen
-- Ergänzt einen bereinigten Installationstest für den echten Zuordnungsweg; der Bericht enthält weder E-Mail-Adressen noch Konto-IDs
+Stellt außerdem die deutsche Changelog-Übersetzung wieder her, wenn Googles öffentlicher JSON-Endpunkt mit HTTP 429 antwortet; Token Meter verwendet dann automatisch Googles mobile Übersetzungsseite als Ausweichweg.
+
+- **Beenden** im Menü des Windows-Infobereichs beendet den Token-Meter-Prozess nach einer zeitlich begrenzten Hintergrundbereinigung jetzt zuverlässig
+- Entfernt eine Dispatcher-Verklemmung, durch die die EXE nach „Beenden“ unsichtbar weiterlaufen konnte
+- Das Verhalten des Fenster-X bleibt unverändert: X legt Token Meter weiterhin im Infobereich ab
+- Beendet eine laufende Token-Meter-Instanz, bevor der Installer seine Dateiverwendungsprüfung startet
+- Verhindert dadurch die unnötige Installer-Seite „Anwendungen verwenden Dateien“, wenn Token Meter bereits beendet wurde
+- Stellt die Beschriftung der Diagnose-Checkbox separat dar, damit sie bei 200-%-Windows-Skalierung nicht mehr abgeschnitten oder durchgestrichen erscheint
+- Behält die vorhandene Diagnose-Einstellung des Benutzers bei; bei der Erstinstallation bleibt die Zustimmung standardmäßig ausgeschaltet
 - Behält beim Update alle verknüpften Konten, Anmeldeprofile, Einstellungen und den Kontingentverlauf bei
 
 ## Verification / Prüfung
 
-The release build passed all 22 internal self-tests and the installed-account mapping integration check. The integration report confirmed that the current desktop identity was linked to the matching Token Meter account without exposing account data.
+The release build passed all 22 internal self-tests, the live official OpenAI changelog check and the live Google translation fallback check. A process-level regression test exercised the real installer shutdown signal and confirmed complete termination with zero remaining Token Meter processes.
 
-Der Release-Build bestand alle 22 internen Selbsttests sowie die Integrationsprüfung mit den installierten Konten. Der bereinigte Bericht bestätigte, dass die aktuelle Desktop-Identität dem passenden Token-Meter-Konto zugeordnet wurde, ohne Kontodaten auszugeben.
+Der Release-Build bestand alle 22 internen Selbsttests sowie die Live-Prüfungen des offiziellen OpenAI-Changelogs und des Google-Übersetzungs-Fallbacks. Ein Prozess-Regressionstest führte das echte Installer-Beendigungssignal aus und bestätigte die vollständige Beendigung ohne verbleibenden Token-Meter-Prozess.
 
 `Token-Meter-by-VI-IT-Setup.exe`
 
-SHA-256: `3207CBE3ECABC7BEFF5440011A5F1BB3B8AFF7CEAA801E8A9509E37CCA6FB932`
+SHA-256: `AAC357C627CCE66483A1453B639C4E8A3B16DBC5F3FADD15C99EB2565D1AE623`
