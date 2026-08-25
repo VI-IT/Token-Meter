@@ -50,11 +50,11 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - See the current daily value from the account service, with a clearly marked local minimum while that value is delayed
 - See how many Codex chats are actively processing on this Windows PC, inside the matched account card whenever the account can be identified safely
 - Detect ChatGPT desktop exit, sign-out, sign-in and account or workspace switches; clear stale LIVE state and remap activity only after the current identity is confirmed
-- Automatically rank accounts with the most remaining capacity first
+- Keep the currently confirmed ChatGPT/Codex desktop account at the very top, then rank every other account by remaining capacity
 - Keep depleted accounts collapsed until you need them
 - Receive a one-time Windows notification on the exact 11% → 10% transition
 - Receive one-time notifications for regular resets within 24 hours and detected quota refills
-- Rename accounts locally and reopen the official sign-in flow when needed
+- Rename accounts locally and either open the official sign-in flow or copy a fresh sign-in link for another browser
 - Use German automatically on German Windows; English on all other Windows display languages
 - Run in the Windows notification area and optionally start with Windows
 - Exit completely from the notification-area menu; the window X continues to hide the app there
@@ -77,6 +77,10 @@ The changelog always opens with the original English OpenAI text. On German inst
 The current build embeds the official stable Codex 0.148.0 component. Token Meter uses its newer account-usage response to show a separate credit balance whenever OpenAI supplies one. For eligible workspaces, it also requests the optional per-thread token and estimated credit/cost figures for locally active sessions. OpenAI does not return those estimates for every account, so the extra line stays hidden when the data is unavailable; weekly quota and local LIVE monitoring continue normally.
 
 Token Meter observes whether the unified ChatGPT/Codex desktop app is running and confirms its current sign-in state before assigning local LIVE activity. Closing Codex or signing out clears the previous mapping and local LIVE state; a later sign-in is mapped again only after the newly active identity has been confirmed. Account and workspace switches also invalidate the old assignment immediately, so cached activity cannot remain attached to the former account. Several ChatGPT workspaces can legitimately use the same e-mail address; Token Meter therefore combines the fresh identity with a privacy-preserving one-way in-memory workspace fingerprint and the account's reported usage and reset windows. If the result is still ambiguous, Token Meter uses a separate local row instead of assigning activity to the wrong account.
+
+Once that current desktop identity is confirmed uniquely, its linked account card stays at the top even when another account has more quota remaining or the current account has reached 0%. All other cards retain the existing remaining-capacity order.
+
+When adding an account or signing in again, Token Meter can either open the official OpenAI/Codex sign-in directly or copy a freshly generated sign-in link to the Windows clipboard. The copied link can be pasted into the user's preferred browser while Token Meter keeps the matching local sign-in attempt active.
 
 The account service can publish the current daily-usage bucket later than the lifetime total. Until that bucket arrives, Token Meter shows `Consumed today: not yet reported by OpenAI` or, when matched local Codex activity is available, a clearly marked local minimum. The local minimum covers this PC only; the server value can later include usage from other devices.
 
@@ -110,7 +114,7 @@ Read the complete [privacy information](PRIVACY.md) and [security policy](SECURI
 1. Download `Token-Meter-by-VI-IT-Setup.exe` from the latest release.
 2. Run the installer for the current Windows user.
 3. Start Token Meter and select **+** to add an account.
-4. Complete the official OpenAI sign-in in your browser.
+4. Open the official OpenAI sign-in directly or copy its fresh link and paste it into your preferred browser.
 
 When a newer GitHub release is available, Token Meter downloads and installs it automatically when the app starts. It shows the download percentage and transferred megabytes. A complete cached installer is verified against GitHub's SHA-256 digest instead of being downloaded again. An independent temporary update worker waits for Token Meter to exit, runs the installer, waits for completion and explicitly restarts the installed application. Diagnostics are written to `update-worker.log` and `update-install.log` in the temporary Token Meter update folder.
 
@@ -162,11 +166,11 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Aktuellen Tageswert des Kontodienstes sehen; bei Verzögerung mit klar gekennzeichnetem lokalen Mindestwert
 - In der passenden Kontokarte anzeigen, wie viele Codex-Chats auf diesem Windows-PC gerade verarbeitet werden, sobald das Konto sicher zugeordnet werden kann
 - Beenden, Abmelden, Anmelden sowie Konto- und Arbeitsbereichswechsel in ChatGPT Desktop erkennen, veraltetes LIVE löschen und Aktivität erst nach bestätigter Identität neu zuordnen
-- Konten mit dem größten verbleibenden Kontingent automatisch nach oben sortieren
+- Das aktuell bestätigte ChatGPT-/Codex-Desktop-Konto immer ganz oben halten und alle übrigen Konten weiterhin nach Restkontingent sortieren
 - Verbrauchte Konten platzsparend einklappen
 - Einmalige Windows-Warnung ausschließlich beim exakten Übergang von 11 % auf 10 %
 - Einmalige Mitteilungen bei regulären Resets innerhalb von 24 Stunden und bei erkannten Kontingentauffüllungen
-- Konten lokal umbenennen und bei Bedarf die offizielle Browser-Anmeldung erneut öffnen
+- Konten lokal umbenennen und die offizielle Anmeldung bei Bedarf direkt öffnen oder als frischen Link für einen anderen Browser kopieren
 - Deutsche Oberfläche unter deutschem Windows, sonst automatisch Englisch
 - Betrieb im Windows-Infobereich und optionaler Windows-Autostart
 - Vollständiges Beenden über das Menü im Infobereich; das Fenster-X legt die App weiterhin dort ab
@@ -189,6 +193,10 @@ Der Changelog öffnet immer mit dem englischen OpenAI-Originaltext. In der deuts
 Der aktuelle Build enthält die offizielle stabile Codex-Komponente 0.148.0. Token Meter nutzt deren erweiterte Kontoauskunft, um ein separates Credit-Guthaben anzuzeigen, sobald OpenAI dieses liefert. Bei dafür freigeschalteten Workspaces werden zusätzlich die optionalen Token- sowie geschätzten Credit-/Kostenwerte der lokal aktiven Sitzungen abgefragt. OpenAI stellt diese Schätzwerte nicht für jedes Konto bereit; fehlen sie, bleibt die Zusatzzeile ausgeblendet und Wochenkontingent sowie lokale LIVE-Erkennung funktionieren unverändert weiter.
 
 Token Meter beobachtet, ob die gemeinsame ChatGPT-/Codex-Desktop-App läuft, und bestätigt ihren aktuellen Anmeldestatus, bevor lokale LIVE-Aktivität einem Konto zugeordnet wird. Wird Codex beendet oder das Konto abgemeldet, werden die bisherige Zuordnung und der lokale LIVE-Zustand gelöscht; nach einer späteren Anmeldung erfolgt die Zuordnung erst wieder, wenn die neue Identität bestätigt wurde. Auch Konto- und Arbeitsbereichswechsel verwerfen die alte Zuordnung sofort, damit keine zwischengespeicherte Aktivität am vorherigen Konto hängen bleibt. Mehrere ChatGPT-Arbeitsbereiche können dieselbe E-Mail-Adresse verwenden; deshalb kombiniert Token Meter die frische Identität mit einem datensparsamen, nicht umkehrbaren Arbeitsbereich-Fingerabdruck im Arbeitsspeicher sowie den gemeldeten Verbrauchs- und Reset-Fenstern. Bleibt die Zuordnung mehrdeutig, erscheint eine getrennte lokale Zeile, statt Aktivität einem falschen Konto zuzuweisen.
+
+Sobald diese aktuelle Desktop-Identität eindeutig bestätigt ist, bleibt ihre verknüpfte Kontokarte ganz oben – auch wenn ein anderes Konto mehr Restkontingent besitzt oder das aktuelle Konto 0 % erreicht hat. Alle übrigen Karten behalten die bisherige Sortierung nach Restkontingent.
+
+Beim Hinzufügen oder erneuten Anmelden eines Kontos kann Token Meter die offizielle OpenAI-/Codex-Anmeldung direkt öffnen oder einen frisch erzeugten Anmeldelink in die Windows-Zwischenablage kopieren. Der Link lässt sich anschließend in den gewünschten Browser einfügen, während Token Meter den zugehörigen lokalen Anmeldeversuch aktiv hält.
 
 Der Kontodienst kann den aktuellen Tages-Bucket später bereitstellen als den Gesamtverbrauch. Bis dahin zeigt Token Meter `Heute verbraucht: von OpenAI noch nicht gemeldet` oder – falls zugeordnete lokale Codex-Aktivität vorhanden ist – einen klar gekennzeichneten lokalen Mindestwert. Dieser Mindestwert umfasst nur diesen PC; der spätere Serverwert kann auch Nutzung anderer Geräte enthalten.
 
@@ -222,7 +230,7 @@ Lies die vollständigen [Datenschutzinformationen](PRIVACY.md) und die [Sicherhe
 1. `Token-Meter-by-VI-IT-Setup.exe` aus dem neuesten Release herunterladen.
 2. Installer für den aktuellen Windows-Benutzer ausführen.
 3. Token Meter starten und über **+** ein Konto hinzufügen.
-4. Die offizielle OpenAI-Anmeldung im Browser abschließen.
+4. Die offizielle OpenAI-Anmeldung direkt öffnen oder ihren frischen Link kopieren und im gewünschten Browser einfügen.
 
 Wenn ein neueres GitHub-Release verfügbar ist, lädt Token Meter es beim Programmstart automatisch herunter und installiert es. Dabei werden Prozent und übertragene Megabyte angezeigt. Ein vollständiger zwischengespeicherter Installer wird anhand der GitHub-SHA-256-Prüfsumme geprüft und nicht erneut heruntergeladen. Ein unabhängiger temporärer Update-Wächter wartet auf das Programmende, führt den Installer aus, wartet auf dessen Abschluss und startet die installierte Anwendung ausdrücklich neu. Diagnosen stehen als `update-worker.log` und `update-install.log` im temporären Token-Meter-Updateordner.
 
