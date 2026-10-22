@@ -1,6 +1,6 @@
 # Token Meter by VI-IT
 
-**Global Codex reset alerts, weekly quota and live token monitoring for multiple ChatGPT accounts on Windows.**
+**Global Codex reset alerts, five-hour and weekly quotas, and live token monitoring for multiple ChatGPT accounts on Windows.**
 
 [English](#english) · **[Deutsche Anleitung](#deutsch)** · [Download](https://github.com/VI-IT/Token-Meter/releases/latest) · [Privacy](PRIVACY.md) · [Support](SUPPORT.md)
 
@@ -43,7 +43,9 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - Review a persistent reset history with announced, account-detected, globally confirmed and rejected states
 - Detect a fresh seven-day quota window even when the first observed value is already 95–99%
 - Monitor multiple separately authenticated ChatGPT/OpenAI accounts
-- Compare remaining Codex weekly quota and exact reset time
+- Compare remaining Codex five-hour and weekly quotas and their exact reset times, when reported for the account
+- Hide limits the account does not have, including in the compact monitor
+- Preserve the last confirmed account state during connection failures and clearly mark stale quota data
 - See token totals and consumption changes reported for each account
 - See a separate OpenAI credit balance when the account service actually reports one
 - See estimated tokens, credits or USD cost for currently active sessions when OpenAI enables the new Codex 0.148 thread-usage data for that workspace
@@ -58,9 +60,10 @@ Token Meter checks the public Codex Reset Timeline directly every two minutes. N
 - Use German automatically on German Windows; English on all other Windows display languages
 - Run in the Windows notification area and optionally start with Windows
 - Exit completely from the notification-area menu; the window X continues to hide the app there
-- Click an account card to open a movable compact quota monitor
+- Click an account card to open a movable, mouse-resizable compact quota monitor that remembers its size and position
 - Minimize the compact monitor to a clean native Windows taskbar progress indicator
-- Flash the compact monitor briefly when the remaining weekly percentage decreases
+- Show five-hour quota on the left and weekly quota on the right; a single available limit uses the full width
+- Flash the compact monitor briefly when either remaining percentage decreases
 - Install future GitHub releases automatically at startup while showing download and installation progress
 - Wait for Token Meter and its background processes to exit before replacing program files during an update
 - Show download percentage and transferred megabytes while an update is being retrieved
@@ -92,7 +95,11 @@ When the account token total increases because of activity on another device, To
 
 Regular weekly reset timestamps can be announced up to 24 hours in advance. Token Meter stores the most recently observed weekly reset timestamp for every account and recognizes a new seven-day window even if activity has already reduced the first visible value from 100% to 95–99%. For extraordinary service-wide resets, Token Meter also reads the public `codex-reset.com` timeline directly every two minutes. Its persistent in-app notice distinguishes an announcement from a reset detected on one account, a globally confirmed reset or an event that public observation did not confirm globally. This optional public signal requires no VI-IT server, account or API key; if it is unavailable, normal quota and LIVE monitoring continue unaffected.
 
-Clicking an account card switches from the full manager to a small always-on-top quota monitor for that account. The monitor can be moved freely, flashes briefly when the remaining weekly percentage decreases and can be minimized to the Windows taskbar. While minimized, Windows shows the remaining quota through its native taskbar progress indicator without a low-resolution text overlay. Double-click the monitor or use its restore button to return to the full manager.
+Clicking an account card switches from the full manager to a small always-on-top quota monitor for that account. It shows the reported five-hour limit on the left and weekly limit on the right. If only one limit exists, that bar fills the width; missing limits are not shown as empty bars or invented 100% values. Move the monitor freely or resize it with the bottom-right grip; its size and position are saved. It flashes briefly when either remaining percentage decreases and can be minimized to the Windows taskbar, where the native progress indicator prefers weekly quota. Double-click the monitor or use its restore button to return to the full manager.
+
+If OpenAI reports a monthly or another longer quota instead of a weekly window, the compact monitor uses that actual window and its matching label.
+
+Temporary network, service or background-process failures no longer look like a sign-out: the last confirmed account and quotas remain visible with a stale-data notice and the previous successful update time. An explicit HTTP 401 from the quota service triggers one targeted session refresh and one retry, with a five-minute cooldown; normal polling does not force token rotation. An explicit signed-out response or an invalidated refresh token still requires signing in again. Token Meter cannot prevent OpenAI from expiring or revoking a session. Damaged or temporarily unreadable local settings are reported as errors instead of replacing saved accounts with an empty list. Cancelling an update defers the immediate startup retry.
 
 The central ChatGPT button opens the existing official ChatGPT desktop app. OpenAI does not currently provide Token Meter with an official Windows account-handoff interface, so ChatGPT opens with the account that was last active in ChatGPT itself.
 
@@ -159,7 +166,9 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Gespeicherten Reset-Verlauf mit angekündigten, kontoabhängig erkannten, global bestätigten und verworfenen Ereignissen öffnen
 - Neues Sieben-Tage-Fenster auch dann erkennen, wenn der erste sichtbare Wert bereits bei 95–99 % liegt
 - Mehrere getrennt angemeldete ChatGPT-/OpenAI-Konten überwachen
-- Verbleibendes Codex-Wochenkontingent und genaue Reset-Zeit vergleichen
+- Verbleibende Codex-5-Stunden- und Wochenkontingente samt genauer Reset-Zeit vergleichen, sofern für das Konto gemeldet
+- Nicht vorhandene Limits auch im Kompaktmonitor vollständig ausblenden
+- Bei Verbindungsfehlern den zuletzt bestätigten Kontostatus erhalten und veraltete Kontingentdaten deutlich kennzeichnen
 - Kontobezogene Tokenstände und Verbrauchsänderungen anzeigen
 - Separates OpenAI-Credit-Guthaben anzeigen, sofern der Kontodienst für das Konto tatsächlich eines meldet
 - Geschätzte Tokens, Credits oder USD-Kosten aktiver Sitzungen sehen, sofern OpenAI die neue Codex-0.148-Sitzungsauswertung für den jeweiligen Workspace freigibt
@@ -176,7 +185,9 @@ Token Meter prüft alle zwei Minuten direkt die öffentliche Codex Reset Timelin
 - Vollständiges Beenden über das Menü im Infobereich; das Fenster-X legt die App weiterhin dort ab
 - Kontokarte anklicken und einen frei verschiebbaren kompakten Prozentmonitor öffnen
 - Kompaktmonitor mit sauberem Windows-Fortschrittsbalken in die Taskleiste minimieren
-- Kompaktmonitor bei sinkendem Wochenkontingent kurz aufleuchten lassen
+- 5-Stunden-Kontingent links und Wochenkontingent rechts anzeigen; ein einzelnes Limit nutzt die volle Breite
+- Kompaktmonitor per Maus vergrößern oder verkleinern und seine Größe sowie Position speichern
+- Kompaktmonitor beim Sinken eines der beiden Kontingente kurz aufleuchten lassen
 - Zukünftige GitHub-Versionen beim Programmstart automatisch installieren und dabei Download- sowie Installationsfortschritt sichtbar anzeigen
 - Vor dem Ersetzen der Programmdateien auf das vollständige Ende von Token Meter und seinen Hintergrundprozessen warten
 - Beim Herunterladen eines Updates Prozent und übertragene Megabyte anzeigen
@@ -208,7 +219,11 @@ Steigt der kontobezogene Tokenstand durch Aktivität auf einem anderen Gerät, z
 
 Reguläre Wochenreset-Termine können bis zu 24 Stunden vorher angekündigt werden. Token Meter speichert für jedes Konto den zuletzt beobachteten Wochenreset-Termin und erkennt ein neues Sieben-Tage-Fenster auch dann, wenn Aktivität den ersten sichtbaren Wert bereits von 100 % auf 95–99 % reduziert hat. Bei außergewöhnlichen dienstweiten Resets liest Token Meter zusätzlich alle zwei Minuten direkt die öffentliche Timeline von `codex-reset.com`. Der dauerhafte Hinweis im Hauptfenster unterscheidet eine Ankündigung, einen bei einem Konto erkannten Reset, einen global bestätigten Reset und ein öffentlich nicht global bestätigtes Ereignis. Dieses optionale öffentliche Signal benötigt weder einen VI-IT-Server noch ein Konto oder einen API-Schlüssel; fällt die Timeline aus, laufen Kontingent- und LIVE-Überwachung unverändert weiter.
 
-Ein Klick auf eine Kontokarte wechselt vom vollständigen Manager zu einem kleinen, immer sichtbaren Prozentmonitor für dieses Konto. Der Monitor lässt sich frei verschieben, leuchtet bei sinkendem Wochenkontingent kurz auf und kann in die Windows-Taskleiste minimiert werden. Dort verwendet er den nativen Windows-Fortschrittsbalken ohne schlecht skalierbares Text-Overlay. Per Doppelklick oder Rückkehrtaste öffnet sich wieder der vollständige Manager.
+Ein Klick auf eine Kontokarte wechselt vom vollständigen Manager zu einem kleinen, immer sichtbaren Prozentmonitor für dieses Konto. Links steht das gemeldete 5-Stunden-Limit, rechts das Wochenlimit. Gibt es nur ein Limit, nutzt dessen Balken die volle Breite; fehlende Limits erscheinen weder als leere Balken noch als erfundene 100 %. Der Monitor lässt sich frei verschieben und am Griff unten rechts mit der Maus skalieren; Größe und Position bleiben gespeichert. Er leuchtet kurz auf, wenn eines der beiden Restkontingente sinkt, und kann in die Windows-Taskleiste minimiert werden. Deren nativer Fortschrittsbalken verwendet bevorzugt das Wochenkontingent. Per Doppelklick oder Rückkehrtaste öffnet sich wieder der vollständige Manager.
+
+Meldet OpenAI statt eines Wochenfensters ein Monats- oder anderes längeres Kontingent, zeigt der kompakte Monitor diesen tatsächlichen Zeitraum mit passender Beschriftung an.
+
+Vorübergehende Netzwerk-, Dienst- oder Hintergrundprozessfehler sehen nicht mehr wie eine Abmeldung aus: Das zuletzt bestätigte Konto und seine Kontingente bleiben mit einem Hinweis auf veraltete Daten und dem letzten erfolgreichen Aktualisierungszeitpunkt sichtbar. Bei einem eindeutigen HTTP 401 des Kontingentdienstes wird die Sitzung einmal gezielt erneuert und der Abruf einmal wiederholt; weitere Erneuerungsversuche sind für fünf Minuten gesperrt. Normale Abrufe erzwingen keine Token-Erneuerung. Eine ausdrücklich gemeldete Abmeldung oder ein ungültig gewordener Refresh-Token erfordert weiterhin eine neue Anmeldung. Token Meter kann das Ablaufen oder Widerrufen einer Sitzung durch OpenAI nicht verhindern. Beschädigte oder vorübergehend unlesbare lokale Einstellungen werden als Fehler gemeldet, statt gespeicherte Konten durch eine leere Liste zu ersetzen. Nach Abbruch eines Updates wird der unmittelbare erneute Installationsversuch beim Neustart zurückgestellt.
 
 Der zentrale ChatGPT-Button öffnet die bereits installierte offizielle ChatGPT-Desktop-App. OpenAI stellt Token Meter derzeit keine offizielle Windows-Schnittstelle zur Kontoübergabe bereit. Deshalb öffnet ChatGPT mit dem zuletzt innerhalb von ChatGPT aktiven Konto.
 

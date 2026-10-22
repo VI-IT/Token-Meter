@@ -1,39 +1,43 @@
-# Token Meter by VI-IT 1.0.24
+# Token Meter by VI-IT 1.0.26
+
+[English](#english) · [Deutsch](#deutsch)
 
 ## English
 
-Adds flexible browser sign-in and keeps the currently confirmed ChatGPT/Codex desktop account at the top of the account list.
+Improves sign-in resilience and shows only the quota windows actually reported for an account.
 
-- Adds **Copy sign-in link** when creating a new account
-- Adds the same **Copy sign-in link** action to every existing account menu
-- Copies a freshly generated official OpenAI/Codex sign-in URL while Token Meter keeps the matching local sign-in attempt active
-- Keeps **Sign in using browser** as the direct one-click option
-- Shows a visible confirmation after the link has reached the Windows clipboard
-- Pins the uniquely confirmed current ChatGPT/Codex desktop account above every other account, regardless of remaining quota
-- Keeps the current account visible even at 0% instead of moving it into the collapsed depleted section
-- Preserves the existing remaining-capacity order for every other account
-- Keeps all linked accounts, authentication profiles, settings and quota history during the update
+- Hides unavailable five-hour limits in both the manager and compact monitor. A single available limit fills the compact monitor's width; missing values are not invented as 100%.
+- Shows five-hour quota on the left and weekly quota on the right when both exist.
+- Uses the reported monthly or other longer quota with its correct label when no weekly window exists.
+- Keeps the compact monitor mouse-resizable, remembers its dimensions and position, and restores the manager on double-click without immediately shrinking again.
+- Preserves the last confirmed account and quotas during temporary service, network or background-process errors, with a clear stale-data warning. Stale values cannot trigger fresh quota alerts.
+- Retries an explicit HTTP 401 once after a targeted managed-session refresh, with a five-minute cooldown. Normal polling does not force token rotation. Revoked or expired refresh tokens can still require signing in again.
+- Serializes background-process startup, restart and per-account refreshes to prevent duplicate processes and old responses interfering with a replacement process.
+- Reports damaged or unreadable settings instead of silently replacing saved accounts with an empty list.
+- Waits for complete local session-log lines before counting them, preventing split UTF-8 records from losing token activity or completion events.
+- Defers the immediate automatic-update retry after a cancelled or unsuccessful installation.
+- Preserves linked accounts and existing diagnostic-data preferences during the update.
 
 ## Deutsch
 
-Ergänzt eine flexible Browser-Anmeldung und hält das aktuell bestätigte ChatGPT-/Codex-Desktop-Konto ganz oben in der Kontenliste.
+Verbessert die Zuverlässigkeit der Anmeldung und zeigt ausschließlich tatsächlich gemeldete Kontingentfenster eines Kontos an.
 
-- Fügt beim Erstellen eines Kontos **Anmeldelink kopieren** hinzu
-- Fügt dieselbe Aktion **Anmeldelink kopieren** im Menü jedes bestehenden Kontos hinzu
-- Kopiert einen frisch erzeugten offiziellen OpenAI-/Codex-Anmeldelink, während Token Meter den passenden lokalen Anmeldeversuch aktiv hält
-- Behält **Im Browser anmelden** als direkte Ein-Klick-Option bei
-- Zeigt eine sichtbare Bestätigung, sobald der Link in der Windows-Zwischenablage liegt
-- Fixiert das eindeutig bestätigte aktuelle ChatGPT-/Codex-Desktop-Konto unabhängig vom Restkontingent über allen anderen Konten
-- Lässt das aktuelle Konto selbst bei 0% sichtbar, statt es in den eingeklappten Bereich für verbrauchte Konten zu verschieben
-- Behält für alle übrigen Konten die bisherige Sortierung nach Restkontingent bei
-- Behält beim Update alle verknüpften Konten, Anmeldeprofile, Einstellungen und den Kontingentverlauf bei
+- Blendet nicht vorhandene 5-Stunden-Limits im Hauptfenster und Minifenster aus. Ein einzelnes vorhandenes Limit nutzt die volle Breite des Minifensters; fehlende Werte werden nicht als 100% erfunden.
+- Zeigt bei zwei vorhandenen Limits das Stundenkontingent links und das Wochenkontingent rechts.
+- Nutzt bei fehlendem Wochenfenster das gemeldete Monats- oder andere längere Kontingent mit passender Beschriftung.
+- Lässt das Minifenster per Maus skalieren, merkt sich Größe und Position und öffnet die große Ansicht per Doppelklick, ohne sofort wieder klein zu werden.
+- Erhält bei vorübergehenden Dienst-, Netzwerk- oder Hintergrundprozessfehlern den zuletzt bestätigten Kontostatus und kennzeichnet veraltete Werte. Daraus entstehen keine neuen Kontingentwarnungen.
+- Erneuert bei einem eindeutigen HTTP 401 die verwaltete Sitzung gezielt und wiederholt den Abruf einmal; weitere Erneuerungsversuche sind für fünf Minuten gesperrt. Normale Abrufe erzwingen keine Token-Erneuerung. Widerrufene oder abgelaufene Refresh-Tokens können weiterhin eine Neuanmeldung erfordern.
+- Koordiniert Start, Neustart und kontobezogene Abrufe der Hintergrundprozesse, damit keine doppelten Prozesse oder verspäteten Antworten alter Prozesse stören.
+- Meldet beschädigte oder unlesbare Einstellungen, statt gespeicherte Konten unbemerkt durch eine leere Liste zu ersetzen.
+- Verarbeitet lokale Sitzungsprotokolle erst nach vollständigem Schreiben einer Zeile. Geteilte UTF-8-Zeichen verlieren dadurch keine Tokenaktivität oder Abschlussereignisse mehr.
+- Verhindert den unmittelbaren erneuten automatischen Installationsversuch nach einem abgebrochenen oder fehlgeschlagenen Update.
+- Erhält verknüpfte Konten und die bestehende Entscheidung zu Diagnosedaten beim Update.
 
 ## Verification / Prüfung
 
-The published single-file build passed all 22 internal self-tests, including the new current-account ordering checks and the official sign-in-link start flow. Integration checks confirmed that the current desktop identity maps to the matching linked account and that the embedded Codex 0.148.0 component can read the signed-in account, account usage and local active-thread list. No account data is included in the reports.
+The release build passed all 26 internal test groups, including optional-quota WPF layout, authentication recovery and cooldown, concurrent background-process restart, settings-read failures, update cancellation and partially written session logs. Live linked-profile checks confirmed both dual-window and weekly-only responses; some upstream HTTP 401 responses persisted after recovery, so this release does not claim to prevent every OpenAI session or authorization failure. No credentials or private account diagnostics are published.
 
-Der veröffentlichte Einzeldatei-Build bestand alle 22 internen Selbsttests einschließlich der neuen Prüfung für die Sortierung des aktuellen Kontos und des offiziellen Anmeldelink-Ablaufs. Integrationstests bestätigten die Zuordnung der aktuellen Desktop-Identität zum passenden verknüpften Konto sowie das Lesen des angemeldeten Kontos, des Kontoverbrauchs und der lokalen aktiven Thread-Liste über die eingebettete Codex-Komponente 0.148.0. Die Prüfberichte enthalten keine Kontodaten.
+Der Release-Build bestand alle 26 internen Testgruppen, einschließlich WPF-Layout bei optionalen Limits, Sitzungswiederherstellung und Sperrzeit, parallelem Hintergrundprozess-Neustart, Einstellungs-Lesefehlern, Update-Abbruch und teilweise geschriebenen Sitzungsprotokollen. Live-Prüfungen bestätigten Antworten mit beiden Limits sowie ausschließlich mit Wochenlimit; einzelne HTTP-401-Antworten des Dienstes blieben trotz Wiederherstellungsversuch bestehen. Die Version verspricht daher keine Verhinderung sämtlicher OpenAI-Sitzungs- oder Berechtigungsfehler. Zugangsdaten und private Kontodiagnosen werden nicht veröffentlicht.
 
-`Token-Meter-by-VI-IT-Setup.exe`
-
-SHA-256: `9492C1554A3A4635C7F1765607CBF00CA2E950AB48BC8308E5A2E27BE5869CB5`
+Installer: `Token-Meter-by-VI-IT-Setup.exe` · SHA-256: see attached `SHA256.txt` / siehe angehängte `SHA256.txt`.
